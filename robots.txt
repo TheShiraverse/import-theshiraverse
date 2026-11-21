@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /curriculum/
+Disallow: /tools/
+Disallow: /AGENTS.md
+Disallow: /CLAUDE.md
+Disallow: /README.md
+
+Sitemap: https://python.theshiraverse.com/sitemap.xml

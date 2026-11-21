@@ -1,0 +1,133 @@
+{
+ "version": 1,
+ "tables": [
+  {
+   "file": "core.dim_brand.csv",
+   "gz": 914,
+   "rows": 117,
+   "cols": [
+    "brand_id",
+    "brand_name",
+    "category_id"
+   ]
+  },
+  {
+   "file": "core.dim_category.csv",
+   "gz": 168,
+   "rows": 10,
+   "cols": [
+    "category_id",
+    "category_name"
+   ]
+  },
+  {
+   "file": "core.dim_date.csv",
+   "gz": 3490,
+   "rows": 788,
+   "cols": [
+    "date_key",
+    "day",
+    "month",
+    "year",
+    "quarter",
+    "day_name",
+    "month_name"
+   ]
+  },
+  {
+   "file": "core.dim_region.csv",
+   "gz": 279,
+   "rows": 20,
+   "cols": [
+    "region_id",
+    "region_name",
+    "country",
+    "state"
+   ]
+  },
+  {
+   "file": "customers.customers.csv",
+   "gz": 1481653,
+   "rows": 50000,
+   "cols": [
+    "customer_id",
+    "first_name",
+    "last_name",
+    "email",
+    "phone",
+    "registration_date",
+    "tier",
+    "tier_updated_at"
+   ]
+  },
+  {
+   "file": "products.products.csv",
+   "gz": 104840,
+   "rows": 6036,
+   "cols": [
+    "product_id",
+    "product_name",
+    "brand_id",
+    "supplier_id",
+    "price",
+    "cost_price"
+   ]
+  },
+  {
+   "file": "products.suppliers.csv",
+   "gz": 3801,
+   "rows": 117,
+   "cols": [
+    "supplier_id",
+    "supplier_name",
+    "contact_name",
+    "city",
+    "email"
+   ]
+  },
+  {
+   "file": "sales.order_items.csv",
+   "gz": 6863966,
+   "rows": 375202,
+   "cols": [
+    "order_item_id",
+    "order_id",
+    "prod_id",
+    "quantity",
+    "unit_price",
+    "gross_amount",
+    "discount_amount",
+    "net_amount"
+   ]
+  },
+  {
+   "file": "sales.orders.csv",
+   "gz": 3219075,
+   "rows": 150000,
+   "cols": [
+    "order_id",
+    "cust_id",
+    "store_id",
+    "order_date",
+    "order_status",
+    "gross_total",
+    "discount_amount",
+    "net_total",
+    "payment_mode_id"
+   ]
+  },
+  {
+   "file": "stores.stores.csv",
+   "gz": 3013,
+   "rows": 200,
+   "cols": [
+    "store_id",
+    "store_name",
+    "region_id",
+    "city",
+    "square_ft",
+    "opening_date"
+   ]
+  }
+ ]
+}

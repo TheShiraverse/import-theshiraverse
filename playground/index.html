@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Playground | import TheShiraverse</title>
+<meta name="description" content="Run real Python and pandas in your browser on the RetailMart retail dataset. No install, no sign-up.">
+<link rel="canonical" href="https://python.theshiraverse.com/playground/">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/chrome.css">
+<style>
+:root{--bg:#0a0e17;--panel:#111827;--card:#1a1f2e;--border:#2a3040;--text:#f1f5f9;--text2:#94a3b8;--muted:#8492a6;--accent:#3b82f6;--accent-l:#60a5fa;--green:#22c55e;--red:#ef4444;--orange:#f59e0b}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5;display:flex;flex-direction:column;min-height:100vh}
+a{color:var(--accent-l);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent-l);outline-offset:2px}
+nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid var(--border)}
+nav .brand{font:600 .95rem 'JetBrains Mono',monospace;color:var(--text);margin-right:auto}
+nav .l{color:var(--text2);font-size:.88rem}nav .l.on{color:var(--text)}
+#status{padding:8px 20px;font-size:.85rem;color:var(--text2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;min-height:38px}
+#status .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 1s infinite}
+#status.ok .dot{background:var(--green);animation:none}#status.err .dot{background:var(--red);animation:none}
+@keyframes pulse{50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){#status .dot{animation:none}}
+.layout{flex:1 0 auto;display:grid;grid-template-columns:280px 1fr;align-items:start}
+aside{border-right:1px solid var(--border);background:var(--panel);padding:14px;position:sticky;top:8px;max-height:calc(100vh - 100px);overflow:auto}
+aside h2{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 8px}
+.tb{margin-bottom:10px}.tb b{display:block;font:500 .82rem 'JetBrains Mono',monospace;color:var(--accent-l)}
+.tb small{color:var(--muted);font-size:.74rem;display:block;overflow-wrap:anywhere}
+main{padding:18px 22px;min-width:0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+select,button{font:600 .85rem Inter,sans-serif;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 14px;cursor:pointer}
+button.run{background:var(--accent);border-color:var(--accent);color:#fff}button.run:disabled{opacity:.5;cursor:wait}
+.hint{color:var(--muted);font-size:.78rem;margin-left:auto}
+textarea{width:100%;min-height:230px;resize:vertical;background:#0d1220;color:#e2e8f0;border:1px solid var(--border);border-radius:10px;padding:14px;font:400 .92rem/1.55 'JetBrains Mono',monospace;tab-size:4}
+#out{margin-top:14px;background:#0d1220;border:1px solid var(--border);border-radius:10px;padding:14px;min-height:90px;overflow:auto;font:400 .86rem/1.5 'JetBrains Mono',monospace;white-space:pre-wrap}
+#out .err{color:#fca5a5}#out .ms{color:var(--muted);font-size:.75rem;display:block;margin-top:8px}
+#out table{border-collapse:collapse;font-size:.8rem;white-space:normal}
+#out th,#out td{border:1px solid var(--border);padding:4px 10px;text-align:right}
+#out th{background:var(--card);color:var(--accent-l)}
+.cta{margin-top:18px;color:var(--text2);font-size:.88rem}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+<nav><a class="brand" href="/">import TheShiraverse</a><span id="site-nav-links"></span></nav>
+<div id="status"><span class="dot"></span><span id="smsg">Starting...</span></div>
+<div class="layout">
+<aside><h2>RetailMart files</h2><div id="tables"></div>
+<p class="tb"><small>Read one with<br><code>pd.read_csv("data/sales.orders.csv")</code></small></p></aside>
+<main>
+<div class="bar">
+<select id="ex" aria-label="Examples"></select>
+<button class="run" id="run" disabled>Run</button>
+<span class="hint">Ctrl/Cmd + Enter to run</span>
+</div>
+<textarea id="code" spellcheck="false" aria-label="Python code"></textarea>
+<div id="out" aria-live="polite">Output appears here.</div>
+<p class="cta">A quick taste of Python in your browser. The course videos and notes are on <a href="/notes/">Nukte</a>. Stuck? <a href="https://theshiraverse.com/book">Book a 1:1</a>.</p>
+</main>
+</div>
+<div id="site-footer-grid"></div>
+<script src="/assets/chrome.js" defer></script>
+<script>
+var EX=[
+["Hello, Python","print('Hello, TheShiraverse')\n2 + 3 * 4"],
+["Read a table","import pandas as pd\norders = pd.read_csv('data/sales.orders.csv')\norders.head()"],
+["Filter (WHERE)","import pandas as pd\norders = pd.read_csv('data/sales.orders.csv')\ndelivered = orders[orders['order_status'] == 'Delivered']\nprint(len(delivered), 'delivered orders')\ndelivered.head()"],
+["Group by (GROUP BY)","import pandas as pd\norders = pd.read_csv('data/sales.orders.csv')\norders.groupby('order_status')['net_total'].agg(['count', 'sum']).sort_values('sum', ascending=False)"],
+["Merge (JOIN)","import pandas as pd\norders = pd.read_csv('data/sales.orders.csv')\nstores = pd.read_csv('data/stores.stores.csv')\nm = orders.merge(stores, on='store_id')\nm.groupby('city')['net_total'].sum().sort_values(ascending=False).head(10)"]
+];
+var $=function(i){return document.getElementById(i)};
+var ex=$('ex'),code=$('code'),out=$('out'),runBtn=$('run'),st=$('status');
+EX.forEach(function(e,i){var o=document.createElement('option');o.value=i;o.textContent=e[0];ex.appendChild(o)});
+code.value=EX[0][1];
+ex.onchange=function(){code.value=EX[ex.value][1]};
+var w=new Worker('worker.js'),seq=0,buf='';
+function status(msg,cls){$('smsg').textContent=msg;st.className=cls||''}
+function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+w.onmessage=function(e){var m=e.data;
+ if(m.type==='progress')status(m.msg);
+ else if(m.type==='ready'){status('Python is ready. pandas and NumPy loaded.','ok');runBtn.disabled=false;
+  $('tables').innerHTML=m.tables.map(function(t){return '<div class="tb"><b>'+t.file+'</b><small>'+t.rows.toLocaleString('en-IN')+' rows: '+t.cols.join(', ')+'</small></div>'}).join('')}
+ else if(m.type==='fatal')status('Could not start Python: '+m.message,'err');
+ else if(m.type==='out')buf+=(m.err?'<span class="err">'+esc(m.text)+'</span>':esc(m.text));
+ else if(m.type==='result'){runBtn.disabled=false;var h=buf;
+  if(m.error)h+='<span class="err">'+esc(m.error)+'</span>';
+  if(m.text)h+=esc(m.text);
+  if(m.html)h+='<div style="overflow:auto;white-space:normal">'+m.html+'</div>';
+  if(!h)h='(no output)';
+  out.innerHTML=h+'<span class="ms">'+(m.ms/1000).toFixed(2)+' s</span>'}
+};
+function run(){if(runBtn.disabled)return;runBtn.disabled=true;buf='';out.textContent='Running...';w.postMessage({type:'run',id:++seq,code:code.value})}
+runBtn.onclick=run;
+code.addEventListener('keydown',function(e){
+ if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run()}
+ if(e.key==='Tab'){e.preventDefault();var s=code.selectionStart;code.setRangeText('    ',s,code.selectionEnd,'end')}
+});
+</script>
+</body>
+</html>
