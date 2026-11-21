@@ -1,16 +1,15 @@
 # import TheShiraverse: Python for Data Analysts, curriculum v3 (2026-11-21, DRAFT, audited against public references: see AUDIT_2026-11-21.md)
 
 Site: python.theshiraverse.com. Part of the TheShiraverse Data Science & AI path (SQL -> Python -> maths -> ML -> deep learning -> NLP/vision -> MLOps).
-Runs in the browser (Pyodide). Dataset: RetailMart. Every topic links back to SQL ("how did I do this in SQL?").
+Runs in the browser (Pyodide). Dataset: RetailMart, introduced where pandas starts (Module 2, Reading data), not in Get started. Every topic links back to SQL ("how did I do this in SQL?").
 Numbering changed in v3: the built deck "Variables & Data Types" is now topic 2 (topic 1 is Hello Python).
 
-## Get started (do once, 6 short sections)
+## Get started (do once, 5 short sections)
 G1 Meet Python: what it is, a short history (Guido, 1991, why the name), Python 2 vs 3, who uses it, why analysts choose it, Python vs SQL vs Excel
 G2 How Python runs: interpreter, REPL, scripts (.py), notebooks (.ipynb), what happens when you press Run
 G3 Run Python in your browser (playground tour)
 G4 Set up Python on your laptop: install (python.org / Anaconda), VS Code, Jupyter, virtual environments (venv/conda), pip
-G5 Load RetailMart into pandas
-G6 Website walkthrough
+G5 Website walkthrough
 
 ## Module 1: Python Foundations (29 topics + 3 mini-projects)
 1 Hello Python: print() (sep, end, many arguments), comments, syntax and indentation, statements and line continuation, help(), PEP 8 and the Zen of Python
