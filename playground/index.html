@@ -44,6 +44,8 @@ textarea{width:100%;min-height:230px;resize:vertical;background:#0d1220;color:#e
 .cta{margin-top:18px;color:var(--text2);font-size:.88rem}
 @media(max-width:800px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--border)}}
 </style>
+<script>window.PYRUN={base:"/playground/",data:true,packages:["pandas","numpy"]};</script>
+<script src="/assets/pyrun.js"></script>
 </head>
 <body>
 <nav><a class="brand" href="/">import TheShiraverse</a><span id="site-nav-links"></span></nav>
@@ -77,23 +79,23 @@ var ex=$('ex'),code=$('code'),out=$('out'),runBtn=$('run'),st=$('status');
 EX.forEach(function(e,i){var o=document.createElement('option');o.value=i;o.textContent=e[0];ex.appendChild(o)});
 code.value=EX[0][1];
 ex.onchange=function(){code.value=EX[ex.value][1]};
-var w=new Worker('worker.js'),seq=0,buf='';
 function status(msg,cls){$('smsg').textContent=msg;st.className=cls||''}
 function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
-w.onmessage=function(e){var m=e.data;
+function fmt(o){return esc(o).replace(/\u0001([\s\S]*?)\u0002/g,'<span class="err">$1</span>')}
+PyRun.on(function(m){
  if(m.type==='progress')status(m.msg);
  else if(m.type==='ready'){status('Python is ready. pandas and NumPy loaded.','ok');runBtn.disabled=false;
   $('tables').innerHTML=m.tables.map(function(t){return '<div class="tb"><b>'+t.file+'</b><small>'+t.rows.toLocaleString('en-IN')+' rows: '+t.cols.join(', ')+'</small></div>'}).join('')}
  else if(m.type==='fatal')status('Could not start Python: '+m.message,'err');
- else if(m.type==='out')buf+=(m.err?'<span class="err">'+esc(m.text)+'</span>':esc(m.text));
- else if(m.type==='result'){runBtn.disabled=false;var h=buf;
+});
+PyRun.start();
+function run(){if(runBtn.disabled)return;runBtn.disabled=true;out.textContent='Running...';
+ PyRun.run(code.value).then(function(m){runBtn.disabled=false;var h=fmt(m.out||'');
   if(m.error)h+='<span class="err">'+esc(m.error)+'</span>';
   if(m.text)h+=esc(m.text);
   if(m.html)h+='<div style="overflow:auto;white-space:normal">'+m.html+'</div>';
   if(!h)h='(no output)';
-  out.innerHTML=h+'<span class="ms">'+(m.ms/1000).toFixed(2)+' s</span>'}
-};
-function run(){if(runBtn.disabled)return;runBtn.disabled=true;buf='';out.textContent='Running...';w.postMessage({type:'run',id:++seq,code:code.value})}
+  out.innerHTML=h+'<span class="ms">'+(m.ms/1000).toFixed(2)+' s</span>'})}
 runBtn.onclick=run;
 code.addEventListener('keydown',function(e){
  if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run()}

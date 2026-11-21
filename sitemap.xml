@@ -2,4 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://python.theshiraverse.com/</loc></url>
 <url><loc>https://python.theshiraverse.com/playground/</loc></url>
+<url><loc>https://python.theshiraverse.com/notes/</loc></url>
+<url><loc>https://python.theshiraverse.com/notes/module-1/variables-data-types/</loc></url>
 </urlset>
