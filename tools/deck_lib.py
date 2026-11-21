@@ -48,7 +48,9 @@ def verify_cells():
     """Run every cell once in a fresh namespace (Python on this Mac). Raises on a wrong result."""
     problems = []
     for c in CELLS:
+        import sys
         buf = io.StringIO(); g = {"__name__": "__main__"}; err = None
+        old_stdin = sys.stdin; sys.stdin = io.StringIO("")   # input() must not wait on the terminal
         try:
             with contextlib.redirect_stdout(buf):
                 import ast
@@ -60,10 +62,37 @@ def verify_cells():
                     if v is not None: buf.write(repr(v))
         except BaseException as ex:
             err = type(ex).__name__
+        finally:
+            sys.stdin = old_stdin
         out = buf.getvalue().strip()
-        if c["raises"]:
+        if c["raises"] == "*":
+            if not err: problems.append(f'expected an error, got none: {c["code"][:50]!r}')
+        elif c["raises"]:
             if err != c["raises"]: problems.append(f'expected {c["raises"]}, got {err}: {c["code"][:50]!r}')
         elif err: problems.append(f'unexpected {err}: {c["code"][:60]!r}')
         elif c["expect"] is not None and out != c["expect"].strip():
             problems.append(f'solution gives {out!r}, expect {c["expect"]!r}: {c["code"][:60]!r}')
     return problems
+
+
+def term(cmds, label="Terminal"):
+    """A terminal-command block with a Copy button (not run in the browser, not verified at build time)."""
+    body = e(cmds.strip("\n"))
+    return (f'<div class="term"><div class="termbar"><span>{e(label)}</span><button class="copy2" type="button" data-copy="{body}">Copy</button></div>'
+            f'<pre>{body}</pre></div>')
+
+def pillars(items):
+    out = "".join(f'<div class="pillar"><div class="n">0{i+1}</div><h3>{t}</h3><ul>' + "".join(f"<li>{x}</li>" for x in lis) + "</ul></div>" for i, (t, lis) in enumerate(items))
+    return f'<div class="grid g{len(items)}">{out}</div>'
+
+def agenda(items): return scene("Today's Agenda", head("Agenda", "What we cover") + pillars(items))
+
+def table(headers, rows, cls="map"):
+    h = "".join(f"<th>{x}</th>" for x in headers)
+    r = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>" for row in rows)
+    return f'<div class="card"><table class="{cls}"><tr>{h}</tr>{r}</table></div>'
+
+def closing(next_title, next_href, blurb, links=True):
+    nxt = f'<a class="btn-next" href="{next_href}">Next: {next_title} &rarr;</a>' if next_href else f'<span class="chip"><b>Next:</b> {next_title} (coming soon)</span>'
+    return scene("Next", head("Next", next_title, blurb) + f'<div style="margin-top:18px">{nxt}</div>'
+                 '<div id="site-footer-grid" style="margin-top:34px"></div>')

@@ -6,7 +6,7 @@
   function emit(m) { listeners.forEach(function (f) { f(m); }); }
   function start() {
     if (w) return readyP;
-    w = new Worker('/assets/pyworker.js');
+    w = new Worker('/assets/pyworker.js?v=4');
     readyP = new Promise(function (res, rej) {
       w.onmessage = function (e) {
         var m = e.data;

@@ -22,7 +22,7 @@ def _run(code, fresh=False):
     res = {}
     if fresh: _reset()
     try:
-        tree = ast.parse(code, mode="exec")
+        tree = ast.parse(code, "<cell>", mode="exec")
         last = None
         if tree.body and isinstance(tree.body[-1], ast.Expr):
             last = ast.Expression(tree.body.pop().value)
@@ -35,6 +35,8 @@ def _run(code, fresh=False):
                 except Exception: h = None
             if h: res["html"] = h
             else: res["text"] = repr(val)
+    except SyntaxError as e:
+        res["error"] = "".join(traceback.format_exception_only(type(e), e)).rstrip()
     except BaseException as e:
         tb = e.__traceback__.tb_next
         res["error"] = "".join(traceback.format_exception(type(e), e, tb)).rstrip()
@@ -52,8 +54,10 @@ async function init(cfg) {
     post({ type: 'progress', msg: 'Loading ' + pk.join(' and ') + '...' });
     await py.loadPackage(pk);
   }
-  py.setStdout({ batched: (s) => post({ type: 'out', id: curId, text: s + '\n' }) });
-  py.setStderr({ batched: (s) => post({ type: 'out', id: curId, text: s + '\n', err: true }) });
+  // raw writers: forward every chunk at once (batched mode holds a trailing partial line, e.g. an input() prompt)
+  const dOut = new TextDecoder(), dErr = new TextDecoder();
+  py.setStdout({ write: (buf) => { post({ type: 'out', id: curId, text: dOut.decode(buf, { stream: true }) }); return buf.length; } });
+  py.setStderr({ write: (buf) => { post({ type: 'out', id: curId, text: dErr.decode(buf, { stream: true }), err: true }); return buf.length; } });
   py.runPython(HELPER);
   let tables = [];
   if (cfg.data) {

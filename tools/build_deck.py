@@ -5,6 +5,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE / "topics"))
 import deck_lib
 SITE = HERE.parent
+ASSET_V = "5"   # bump when assets/pyrun.js, pyworker.js, deck.js or deck.css change (cache busting)
 
 def main(stem):
     t = importlib.import_module(stem)
@@ -15,12 +16,18 @@ def main(stem):
         print("CELL PROBLEMS:"); [print(" -", p) for p in problems]; sys.exit(1)
     n_practice = sum(1 for c in deck_lib.CELLS if c.get("practice"))
     n_int = sum(s.count('class="reveal"') for s in scenes if "Interview" in s[:200])
-    title = m["title"]; url = f'https://python.theshiraverse.com/notes/module-{m["module"]}/{m["slug"]}/'
-    chips = [(len(scenes) + 1, "scenes"), (n_practice, "practice questions"), (5, "interview questions"), ("live", "runnable code")]
+    rel = m.get("path") or f'module-{m["module"]}/{m["slug"]}'
+    title = m["title"]; url = f'https://python.theshiraverse.com/notes/{rel}/'
+    chips = [(len(scenes) + 1, "scenes"), (len(deck_lib.CELLS), "runnable cells")]
+    if n_practice: chips += [(n_practice, "practice questions"), (5, "interview questions")]
+    chips += m.get("chips", [])
+    tag = m.get("tag") or "Module %s · Topic %s" % (m.get("module"), m.get("num"))
+    mlabel = m.get("mission_label", "Today's mission")
+    mtext = m.get("mission", "name a value, know its type, and convert it safely.")
     ch = "".join(f'<span class="chip"><b>{a}</b> {b}</span>' for a, b in chips)
-    first = (f'<section class="scene active" data-title="{title}"><div class="inner"><div class="tag">Module {m["module"]} · Topic {m["num"]}</div>'
+    first = (f'<section class="scene active" data-title="{title}"><div class="inner"><div class="tag">{tag}</div>'
              f'<h1><span class="py">import</span> TheShiraverse<br>{title}</h1><p class="lead">{(lambda d: d[0].upper()+d[1:])(m["desc"].split(": ",1)[1])}</p><div class="chips">{ch}</div>'
-             f'<div class="mission"><b>Today\'s mission:</b> name a value, know its type, and convert it safely. Press <b>→</b> to move, <b>M</b> for all scenes.</div></div></section>')
+             f'<div class="mission"><b>{mlabel}:</b> {mtext} Press <b>→</b> to move, <b>M</b> for all scenes.</div></div></section>')
     body = first + "\n".join(scenes)
     page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -38,8 +45,8 @@ def main(stem):
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/chrome.css"><link rel="stylesheet" href="/assets/deck.css">
-<script>window.PYRUN={m["pyrun"]};</script><script src="/assets/pyrun.js"></script>
+<link rel="stylesheet" href="/assets/chrome.css"><link rel="stylesheet" href="/assets/deck.css?v={ASSET_V}">
+<script>window.PYRUN={m["pyrun"]};</script><script src="/assets/pyrun.js?v={ASSET_V}"></script>
 </head>
 <body>
 <div class="bar"><a class="brand" href="/notes/">import <b>TheShiraverse</b></a><div class="tools"><a href="/playground/" target="_blank" rel="noopener">Playground</a><button id="scenes" type="button">Scenes (M)</button><button id="prev" type="button" aria-label="Previous scene">&larr;</button><button id="next" type="button" aria-label="Next scene">&rarr;</button></div></div>
@@ -48,12 +55,12 @@ def main(stem):
 </div>
 <div class="menu" id="menu"><ol></ol></div>
 <div class="progress"></div><div class="foot" id="footinfo"></div>
-<script src="/assets/deck.js"></script>
+<script src="/assets/deck.js?v={ASSET_V}"></script>
 <script src="/assets/chrome.js" defer></script>
 </body>
 </html>
 '''
-    out = SITE / "notes" / f'module-{m["module"]}' / m["slug"]
+    out = SITE / "notes" / rel
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(page)
     print(f"built {out/'index.html'}  scenes={len(scenes)+1} cells={len(deck_lib.CELLS)} practice={n_practice} bytes={len(page)}")

@@ -94,3 +94,26 @@ table.map td:nth-child(2){font-family:'JetBrains Mono',monospace;color:var(--gre
 .menu a span{color:var(--muted);font:12px 'JetBrains Mono',monospace;margin-right:10px}
 @media(max-width:1000px){.g3,.g4,.g5,.g2{grid-template-columns:1fr}.menu ol{columns:1}.scene{padding:76px 5vw 56px}}
 @media (prefers-reduced-motion:reduce){.scene,.progress{transition:none}}
+
+.term{background:var(--code);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:8px 0}
+.term .termbar{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:#111827;font:600 12px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.term .termbar button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:7px;padding:4px 10px;font:600 12px Inter}
+.term pre{padding:12px 16px;font-size:14.5px;line-height:1.6;color:#e2e8f0;overflow-x:auto;white-space:pre}
+.btn-next{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none}
+.btn-next:hover{background:var(--accent2)}
+.os{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:1000px){.os{grid-template-columns:1fr}}
+.flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+.flow .step{flex:1 1 150px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-align:center}
+.flow .step b{display:block;color:var(--accent2);font:700 12px 'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.flow .arrow{align-self:center;color:var(--muted);font-size:22px}
+.timeline{display:grid;gap:10px}
+.timeline .row{display:grid;grid-template-columns:150px 1fr;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px}
+.timeline .when{font:700 14px 'JetBrains Mono',monospace;color:var(--accent2)}
+@media(max-width:700px){.timeline .row{grid-template-columns:1fr}}
+/* phone fixes: grid items may shrink; terminals and tables scroll inside their own box */
+.grid>*,.os>*,.flow>*{min-width:0}
+.card{min-width:0}
+.card:has(>table){overflow-x:auto}
+.term{max-width:100%}
+.term pre{max-width:100%}
+@media(max-width:700px){table.map th,table.map td{padding:8px 8px;font-size:14px}.card{padding:16px}.cell .code{font-size:14px}.timeline .when{font-size:13px}}

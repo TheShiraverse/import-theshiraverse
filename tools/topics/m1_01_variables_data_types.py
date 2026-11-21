@@ -1,7 +1,7 @@
 from deck_lib import *
 
 META = dict(
-    module=1, num=1, slug="variables-data-types", title="Variables & Data Types",
+    module=1, num=2, slug="variables-data-types", title="Variables & Data Types",
     desc="Python Module 1, topic 1: variables, int, float, str, bool and None, converting between types, and the three errors every beginner meets. Run every example in your browser.",
     next=("Numbers & Operators", "numbers-operators"),
     pyrun='{base:"/playground/",data:false,packages:[]}',
@@ -157,9 +157,10 @@ def build():
         cell("# your work here\nname = 'Samsung Recusandae Lite'\n", vars=True, rows=9),
     ])))
     # 23 journey
-    topics = ["Variables & types", "Numbers & operators", "Strings & f-strings", "Input, output & errors", "Lists", "Tuples & sets", "Dictionaries", "Conditions", "Loops", "Functions", "Comprehensions", "Files, CSV & JSON", "Modules & imports", "Error handling"]
-    j = "".join(f'<span class="{"here" if i == 0 else ""}">{i+1}. {t}</span>' for i, t in enumerate(topics))
-    S.append(scene("Your Python Journey", head("Your Python journey", "Module 1: Python Foundations", "You are here: topic 1 of 14.") + f'<div class="journey">{j}</div>'))
+    import curriculum_data
+    topics = [t["title"] for t in curriculum_data.MODULES[1]["topics"] if t["n"].isdigit()]
+    j = "".join(f'<span class="{"here" if i == 1 else ("done" if i < 1 else "")}">{i+1}. {t}</span>' for i, t in enumerate(topics))
+    S.append(scene("Your Python Journey", head("Your Python journey", "Module 1: Python Foundations", "You are here: topic 2 of 29.") + f'<div class="journey">{j}</div>'))
     # 24 next
     S.append(scene("Next: Numbers & Operators", head("Next topic", "Numbers & Operators",
         "Arithmetic, integer division, modulo, powers, rounding, and exact money with <code>Decimal</code>. You will use every one of them on RetailMart orders.") +
