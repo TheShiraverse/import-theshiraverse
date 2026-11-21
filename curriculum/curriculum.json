@@ -1,0 +1,2117 @@
+[
+ {
+  "code": "G",
+  "title": "Get started",
+  "outcome": "Know what Python is, how it runs, and have a place to run code (browser or laptop).",
+  "topics": [
+   {
+    "n": "G1",
+    "title": "Meet Python",
+    "goal": "Explain what Python is, where it came from and why analysts use it.",
+    "covers": [
+     "What Python is and what it is used for",
+     "a short history (Guido van Rossum, first release 1991, the name)",
+     "Python 2 vs Python 3",
+     "who uses Python (data, web, automation, AI)",
+     "Python vs SQL vs Excel for an analyst",
+     "what this course will and will not cover"
+    ],
+    "sql": "SQL asks a database a question; Python is a general language that can also ask the database, clean the answer, chart it and automate it",
+    "traps": [
+     "Installing Python 2 by mistake",
+     "thinking Python replaces SQL",
+     "expecting to learn everything in one week"
+    ],
+    "practice": [
+     "Match 6 jobs to the right tool (SQL, Excel, Python)",
+     "a 3-line 'my goal with Python' note"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "G2",
+    "title": "How Python runs",
+    "goal": "Describe what happens between writing code and seeing output.",
+    "covers": [
+     "Interpreter and bytecode in one picture",
+     "REPL (interactive prompt) vs script (.py) vs notebook (.ipynb)",
+     "running a script from a terminal",
+     "what a Python version is",
+     "errors vs output",
+     "the role of files and folders"
+    ],
+    "sql": "SQL runs inside a database server; Python runs in an interpreter on your machine (or here in the browser)",
+    "traps": [
+     "Saving a file as .py.txt",
+     "running in the wrong folder",
+     "confusing the REPL prompt with code"
+    ],
+    "practice": [
+     "Run the same 3 lines in REPL, as a script, and in a notebook and compare"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "G3",
+    "title": "Run Python in your browser",
+    "goal": "Use the playground to run, edit and re-run code with no install.",
+    "covers": [
+     "Tour of the playground",
+     "running a cell",
+     "reading output and errors",
+     "what runs in the browser (pure Python, pandas, NumPy) and what does not",
+     "keyboard shortcuts"
+    ],
+    "sql": "Like the SQL playground, but for Python",
+    "traps": [
+     "Expecting files to persist",
+     "closing the tab and losing work (copy your code)"
+    ],
+    "practice": [
+     "Run and change 5 example cells"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "G4",
+    "title": "Set up Python on your laptop",
+    "goal": "Have Python, VS Code and Jupyter working, in a clean environment.",
+    "covers": [
+     "Installing Python (python.org) or Anaconda/Miniconda",
+     "VS Code and the Python extension",
+     "Jupyter Notebook/JupyterLab",
+     "virtual environments with venv and conda",
+     "pip install/uninstall/list",
+     "requirements.txt",
+     "Windows and Mac differences"
+    ],
+    "sql": "Same idea as installing PostgreSQL and pgAdmin in the SQL course",
+    "traps": [
+     "Not activating the environment",
+     "installing packages globally",
+     "two Pythons on PATH"
+    ],
+    "practice": [
+     "Create an env called ds_env, install pandas, print its version"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "G5",
+    "title": "Website walkthrough",
+    "goal": "Know where notes, practice, playground and help live.",
+    "covers": [
+     "Nukte notes",
+     "the Practice banks",
+     "the playground",
+     "how topics are ordered",
+     "how to ask for help and book a 1:1"
+    ],
+    "sql": "Same layout as the SQL site",
+    "traps": [
+     "Skipping the practice arena"
+    ],
+    "practice": [
+     "Find one topic, its practice set and the playground"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 4 h"
+ },
+ {
+  "code": "1",
+  "title": "Python Foundations",
+  "outcome": "Write, read and debug everyday Python: values, text, collections, control flow, functions, files, errors and small classes.",
+  "topics": [
+   {
+    "n": "1",
+    "title": "Hello Python",
+    "goal": "Write and run first programs and read simple code.",
+    "covers": [
+     "print() with several arguments, sep and end",
+     "text in quotes",
+     "comments (#)",
+     "statements and line continuation",
+     "indentation defines blocks",
+     "syntax errors",
+     "help() and dir()",
+     "PEP 8 and the Zen of Python (import this)"
+    ],
+    "sql": "SELECT shows a result; print() shows output. SQL ends with ;, Python ends with a new line",
+    "traps": [
+     "Missing quotes or brackets",
+     "mixing tabs and spaces (IndentationError)",
+     "print without brackets (Python 2 habit)"
+    ],
+    "practice": [
+     "Print a receipt header",
+     "fix 5 broken one-liners"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "2",
+    "title": "Variables & data types",
+    "goal": "Name values, know their types and convert between them safely.",
+    "covers": [
+     "Assignment",
+     "naming rules and snake_case",
+     "multiple assignment",
+     "int, float, str, bool, None",
+     "type()",
+     "casting with int()/float()/str()/bool()",
+     "constants by convention",
+     "del",
+     "swapping"
+    ],
+    "sql": "Python types vs SQL column types (INT, NUMERIC, TEXT, BOOLEAN, NULL)",
+    "traps": [
+     "NameError",
+     "str + int TypeError",
+     "float drift 0.1+0.2",
+     "bool('False') is True"
+    ],
+    "practice": [
+     "8 practice questions (built)",
+     "take-home on a second product"
+    ],
+    "status": "BUILT"
+   },
+   {
+    "n": "3",
+    "title": "Numbers & operators",
+    "goal": "Do arithmetic correctly, including rounding and exact money.",
+    "covers": [
+     "+ - * / // % **",
+     "operator precedence and brackets",
+     "augmented assignment (+=)",
+     "abs, round, divmod, min, max",
+     "math module",
+     "float vs Decimal vs Fraction",
+     "complex numbers (brief)",
+     "bitwise operators (note)",
+     "underscores in literals"
+    ],
+    "sql": "PostgreSQL integer division, POWER, MOD, ROUND, GREATEST/LEAST",
+    "traps": [
+     "ZeroDivisionError",
+     "round(2.5) is 2",
+     "-7 // 2 is -4",
+     "^ is XOR not power",
+     "Decimal + float TypeError"
+    ],
+    "practice": [
+     "GST invoice",
+     "splitting an amount",
+     "change-making"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "4",
+    "title": "Strings 1: text basics",
+    "goal": "Slice and inspect text confidently.",
+    "covers": [
+     "Quotes, escapes and raw strings",
+     "triple-quoted text",
+     "concatenation and repetition",
+     "len",
+     "indexing and negative indexing",
+     "slicing [start:stop:step]",
+     "immutability",
+     "in and comparison"
+    ],
+    "sql": "SUBSTRING, LENGTH, || and LIKE",
+    "traps": [
+     "IndexError",
+     "TypeError on item assignment",
+     "off-by-one slices",
+     "backslashes in Windows paths"
+    ],
+    "practice": [
+     "Mask a card number",
+     "extract an area code",
+     "reverse with a slice"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "5",
+    "title": "Strings 2: methods & formatting",
+    "goal": "Clean and format text.",
+    "covers": [
+     "upper/lower/title",
+     "strip",
+     "split/join",
+     "replace",
+     "find/index/count",
+     "startswith/endswith",
+     "isdigit/isalpha",
+     "f-strings (width, precision, thousands)",
+     "format()",
+     "% formatting"
+    ],
+    "sql": "UPPER, TRIM, SPLIT_PART, REPLACE, TO_CHAR",
+    "traps": [
+     "Methods return new strings",
+     "split(' ') vs split()",
+     "quotes inside f-strings"
+    ],
+    "practice": [
+     "Clean names",
+     "format invoice lines",
+     "parse 'name,city'"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "6",
+    "title": "Booleans, comparison & logic",
+    "goal": "Write correct conditions.",
+    "covers": [
+     "True/False",
+     "comparison operators and chaining",
+     "and/or/not and precedence",
+     "short-circuit",
+     "is vs ==",
+     "in / not in",
+     "truthiness (0, '', None, empty collections)",
+     "None",
+     "bool()"
+    ],
+    "sql": "WHERE logic, IS NULL, IN; how Python None differs from SQL NULL",
+    "traps": [
+     "x == None",
+     "if x == 1 or 2",
+     "comparing floats",
+     "bool('False')"
+    ],
+    "practice": [
+     "Eligibility rules",
+     "truthiness quiz",
+     "input validation"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "7",
+    "title": "Input & output",
+    "goal": "Take input, validate it and print neat output.",
+    "covers": [
+     "input() always returns str",
+     "converting and validating",
+     "formatted output and alignment",
+     "printing small tables",
+     "end/sep",
+     "stdout vs stderr",
+     "browser note (simulated input)"
+    ],
+    "sql": "SQL has parameters, not input()",
+    "traps": [
+     "int(input()) ValueError",
+     "forgetting to convert",
+     "unclear prompts"
+    ],
+    "practice": [
+     "Bill splitter",
+     "tip calculator",
+     "a tiny form"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "8",
+    "title": "Conditions",
+    "goal": "Make programs choose.",
+    "covers": [
+     "if/elif/else",
+     "nested conditions",
+     "conditional expression (ternary)",
+     "match/case (literals, or-patterns, guards)",
+     "pass as placeholder",
+     "indentation"
+    ],
+    "sql": "CASE WHEN",
+    "traps": [
+     "= vs ==",
+     "elif order",
+     "match with no default",
+     "deep nesting"
+    ],
+    "practice": [
+     "Discount tiers",
+     "grade bands",
+     "order-status router"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "9",
+    "title": "Lists 1",
+    "goal": "Store and process ordered collections.",
+    "covers": [
+     "Create",
+     "index and negative index",
+     "slicing",
+     "append/extend/insert",
+     "remove/pop/del",
+     "len/min/max/sum",
+     "sort() vs sorted()",
+     "key=",
+     "reverse",
+     "in, count, index"
+    ],
+    "sql": "ORDER BY, LIMIT; arrays",
+    "traps": [
+     "sort() returns None",
+     "IndexError",
+     "changing a list while looping"
+    ],
+    "practice": [
+     "Top-3 prices",
+     "median",
+     "sort orders by total"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "10",
+    "title": "Lists 2: references & copies",
+    "goal": "Avoid the silent bugs of shared lists.",
+    "covers": [
+     "Aliasing vs copying",
+     "shallow vs deep copy",
+     "nested lists and grids",
+     "stacks and queues (append/pop, deque)",
+     "del and slice assignment",
+     "unpacking and *rest"
+    ],
+    "sql": "Rows are copies; Python lists are shared references",
+    "traps": [
+     "b = a changes a",
+     "[[0]*3]*3",
+     "mutating a default argument (preview)"
+    ],
+    "practice": [
+     "Matrix transpose",
+     "undo stack",
+     "rotate a list"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "11",
+    "title": "Tuples & sets",
+    "goal": "Use fixed records and unique collections.",
+    "covers": [
+     "Tuple literals and immutability",
+     "packing/unpacking",
+     "returning several values",
+     "namedtuple (brief)",
+     "sets: uniqueness, union, intersection, difference, symmetric difference",
+     "frozenset",
+     "speed of membership",
+     "set vs list"
+    ],
+    "sql": "UNION, INTERSECT, EXCEPT, DISTINCT",
+    "traps": [
+     "(5) is not a tuple, (5,) is",
+     "sets are unordered",
+     "unhashable items",
+     "{} is a dict"
+    ],
+    "practice": [
+     "Customers in both campaigns",
+     "unique cities",
+     "swap with tuples"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "12",
+    "title": "Dictionaries",
+    "goal": "Model records and lookups.",
+    "covers": [
+     "Key/value pairs",
+     "get(), setdefault()",
+     "keys/values/items",
+     "add/update/pop/del",
+     "nested dicts",
+     "iterating",
+     "merging with | and update()",
+     "Counter and defaultdict",
+     "dict as lookup table",
+     "JSON-like records"
+    ],
+    "sql": "GROUP BY counts; lookup joins",
+    "traps": [
+     "KeyError",
+     "unhashable keys",
+     "changing a dict while iterating"
+    ],
+    "practice": [
+     "Count order statuses",
+     "price lookup",
+     "group orders by city"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "13",
+    "title": "Loops 1: for",
+    "goal": "Repeat work over collections.",
+    "covers": [
+     "for over lists, strings, dicts",
+     "range(start, stop, step)",
+     "enumerate",
+     "zip",
+     "reversed and sorted",
+     "accumulator patterns (sum, count, max)",
+     "nested loops intro"
+    ],
+    "sql": "Set-based SQL vs row-by-row loops: why pandas replaces most loops",
+    "traps": [
+     "Off-by-one in range",
+     "changing a list while looping",
+     "reusing the loop variable"
+    ],
+    "practice": [
+     "Total of order amounts",
+     "FizzBuzz",
+     "multiplication table"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "14",
+    "title": "Loops 2: while & control",
+    "goal": "Repeat until a condition and control the flow.",
+    "covers": [
+     "while and sentinels",
+     "infinite loops",
+     "break",
+     "continue",
+     "loop else",
+     "pass",
+     "nested loops",
+     "retry patterns"
+    ],
+    "sql": "Recursive CTE idea",
+    "traps": [
+     "Infinite loop",
+     "forgetting to update the condition",
+     "misreading loop else"
+    ],
+    "practice": [
+     "Retry a payment 3 times",
+     "first prime",
+     "simulated guessing game"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "15",
+    "title": "Comprehensions",
+    "goal": "Build collections in one readable line.",
+    "covers": [
+     "List, set and dict comprehensions",
+     "conditions",
+     "nested comprehensions",
+     "vs map/filter",
+     "generator expressions",
+     "when not to use them"
+    ],
+    "sql": "SELECT expression ... WHERE ...",
+    "traps": [
+     "Over-complex one-liners",
+     "side effects inside",
+     "variable leakage"
+    ],
+    "practice": [
+     "Convert prices",
+     "filter premium products",
+     "invert a dict"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "16",
+    "title": "Functions 1",
+    "goal": "Package logic into reusable functions.",
+    "covers": [
+     "def and calling",
+     "parameters vs arguments",
+     "return vs print",
+     "multiple return values",
+     "None",
+     "local vs global scope",
+     "docstrings",
+     "helper functions"
+    ],
+    "sql": "User-defined functions in PostgreSQL",
+    "traps": [
+     "Forgetting return",
+     "changing globals",
+     "UnboundLocalError"
+    ],
+    "practice": [
+     "gst()",
+     "is_valid_phone()",
+     "summarise(order)"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "17",
+    "title": "Functions 2: arguments",
+    "goal": "Design flexible function signatures.",
+    "covers": [
+     "Default and keyword arguments",
+     "the mutable-default trap",
+     "positional-only and keyword-only",
+     "*args and **kwargs",
+     "unpacking with * and **",
+     "type hints and annotations",
+     "pure functions"
+    ],
+    "sql": "Function parameters with DEFAULT",
+    "traps": [
+     "Default list shared between calls",
+     "wrong argument order",
+     "**kwargs typos"
+    ],
+    "practice": [
+     "Flexible report()",
+     "discount(price, pct=10)",
+     "a wrapper"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "18",
+    "title": "Functions 3: functional tools",
+    "goal": "Use functions as values.",
+    "covers": [
+     "lambda",
+     "key= with lambda",
+     "map, filter, sorted, min, max, any, all, sum",
+     "recursion (base case, factorial, Fibonacci)",
+     "closures",
+     "decorators (a timing decorator)"
+    ],
+    "sql": "ORDER BY expressions; aggregate functions",
+    "traps": [
+     "Recursion depth",
+     "lambda overuse",
+     "late-binding closures"
+    ],
+    "practice": [
+     "Sort orders by total",
+     "recursive sum",
+     "timing decorator"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "19",
+    "title": "Iterators & generators",
+    "goal": "Process data lazily.",
+    "covers": [
+     "Iterable vs iterator",
+     "iter/next",
+     "StopIteration",
+     "yield and generator functions",
+     "generator expressions",
+     "memory benefits",
+     "itertools (islice, chain)"
+    ],
+    "sql": "Cursors and streaming results",
+    "traps": [
+     "Exhausted generators",
+     "converting to list too early"
+    ],
+    "practice": [
+     "Read a big file lazily",
+     "batch iterator",
+     "running totals"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "20",
+    "title": "Modules, packages & the standard library",
+    "goal": "Reuse code and install libraries.",
+    "covers": [
+     "import styles",
+     "writing a module",
+     "packages",
+     "__name__ == '__main__'",
+     "module search path",
+     "dir()",
+     "pip and requirements.txt",
+     "tour: math, random (seed), statistics, collections, itertools, timeit"
+    ],
+    "sql": "Schemas and extensions",
+    "traps": [
+     "Naming a file random.py",
+     "circular imports",
+     "installing into the wrong environment"
+    ],
+    "practice": [
+     "Dice simulation with a seed",
+     "statistics of prices",
+     "a tiny utility module"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "21",
+    "title": "Dates & times",
+    "goal": "Work with dates without the usual bugs.",
+    "covers": [
+     "date, time, datetime, timedelta",
+     "strftime/strptime and format codes",
+     "ISO format",
+     "comparing and subtracting",
+     "weekday, month ends",
+     "time zones with zoneinfo (IST)",
+     "epoch"
+    ],
+    "sql": "DATE_TRUNC, EXTRACT, intervals",
+    "traps": [
+     "Naive vs aware datetimes",
+     "%m vs %M",
+     "DD/MM vs MM/DD",
+     "month arithmetic"
+    ],
+    "practice": [
+     "Age",
+     "days between orders",
+     "last day of month",
+     "parse mixed date strings"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "22",
+    "title": "Text patterns: regex",
+    "goal": "Find and extract patterns in text.",
+    "covers": [
+     "re.search/match/findall/sub/split",
+     "character classes",
+     "quantifiers",
+     "anchors",
+     "groups and named groups",
+     "greedy vs lazy",
+     "flags",
+     "compile",
+     "validating phone/email shapes"
+    ],
+    "sql": "LIKE, SIMILAR TO and ~ in PostgreSQL",
+    "traps": [
+     "match vs search",
+     "forgetting to escape",
+     "greedy surprises"
+    ],
+    "practice": [
+     "Extract phone numbers",
+     "mask digits",
+     "parse log lines"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "23",
+    "title": "Files",
+    "goal": "Read and write text files safely.",
+    "covers": [
+     "open modes (r, w, a)",
+     "with",
+     "read/readline/readlines",
+     "looping over lines",
+     "write and append",
+     "encoding (utf-8)",
+     "pathlib.Path (exists, glob, mkdir, read_text)",
+     "os basics",
+     "relative vs absolute paths"
+    ],
+    "sql": "COPY",
+    "traps": [
+     "Forgetting with/close",
+     "encoding errors",
+     "overwriting with 'w'",
+     "Windows paths"
+    ],
+    "practice": [
+     "Word count",
+     "log filter",
+     "write a report file"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "24",
+    "title": "CSV & JSON",
+    "goal": "Read and write the two most common data formats.",
+    "covers": [
+     "csv.reader/DictReader/writer",
+     "delimiters, quoting, headers",
+     "everything is str",
+     "json.load/dump/loads/dumps",
+     "nested JSON",
+     "flattening",
+     "pretty printing",
+     "dates in JSON"
+    ],
+    "sql": "COPY ... CSV; JSONB",
+    "traps": [
+     "Numbers are strings in CSV",
+     "missing newline=''",
+     "tuples and datetimes are not JSON"
+    ],
+    "practice": [
+     "Sum a CSV column",
+     "CSV to JSON",
+     "flatten nested orders"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "25",
+    "title": "Errors & debugging",
+    "goal": "Read errors, handle them and find bugs.",
+    "covers": [
+     "Syntax errors vs exceptions",
+     "reading a traceback",
+     "common exceptions (NameError, TypeError, ValueError, KeyError, IndexError, ZeroDivisionError, FileNotFoundError)",
+     "try/except/else/finally",
+     "raise",
+     "custom exceptions",
+     "chaining",
+     "assert",
+     "logging levels",
+     "print debugging",
+     "pdb",
+     "EAFP vs LBYL"
+    ],
+    "sql": "Constraint errors and SQLSTATE",
+    "traps": [
+     "Bare except",
+     "swallowing errors",
+     "catching too much"
+    ],
+    "practice": [
+     "safe_int()",
+     "retrying reader",
+     "validate a record with a custom exception"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "26",
+    "title": "Classes & objects (OOP 1)",
+    "goal": "Model real things as objects.",
+    "covers": [
+     "class and object",
+     "__init__ and self",
+     "attributes and methods",
+     "instance vs class variables",
+     "__str__ and __repr__",
+     "objects are references",
+     "when to use a class"
+    ],
+    "sql": "A table row is like an object",
+    "traps": [
+     "Forgetting self",
+     "mutable class variable",
+     "str vs repr"
+    ],
+    "practice": [
+     "Customer class",
+     "BankAccount",
+     "Cart"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "27",
+    "title": "Inheritance & friends (OOP 2)",
+    "goal": "Extend and reuse classes.",
+    "covers": [
+     "Inheritance and super()",
+     "overriding",
+     "polymorphism and duck typing",
+     "encapsulation (_ and __)",
+     "@property",
+     "@classmethod",
+     "@staticmethod",
+     "dunder methods (__len__, __eq__, __lt__, __add__, __contains__)",
+     "composition vs inheritance"
+    ],
+    "sql": "Views and inheritance of tables (INHERITS)",
+    "traps": [
+     "Overriding without super()",
+     "multiple-inheritance confusion",
+     "name mangling"
+    ],
+    "practice": [
+     "Shape hierarchy",
+     "comparable products",
+     "Order with a total property"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "28",
+    "title": "Dataclasses, clean code & tests",
+    "goal": "Write code others can read and trust.",
+    "covers": [
+     "dataclass (defaults, frozen, order)",
+     "PEP 8 in practice",
+     "naming",
+     "short functions",
+     "docstrings",
+     "type hints",
+     "assert and doctest",
+     "pytest basics",
+     "a code-review checklist"
+    ],
+    "sql": "Naming conventions and migrations",
+    "traps": [
+     "Mutable default in a dataclass (use default_factory)",
+     "tests that test nothing"
+    ],
+    "practice": [
+     "Refactor a messy script",
+     "write 5 tests"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "29",
+    "title": "Git & GitHub basics",
+    "goal": "Version your work and publish a portfolio.",
+    "covers": [
+     "Repo, init/clone",
+     "add/commit",
+     "status/log/diff",
+     "branches and merge",
+     "push/pull",
+     ".gitignore",
+     "README",
+     "a GitHub profile",
+     "good commit messages"
+    ],
+    "sql": "The same repo habits as the SQL course",
+    "traps": [
+     "Committing data or secrets",
+     "huge files",
+     "force-push"
+    ],
+    "practice": [
+     "Create a portfolio repo with the mini-project"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "P1",
+    "title": "Mini-project: Student grade calculator",
+    "goal": "Combine files, loops, dicts and functions.",
+    "covers": [
+     "Read a CSV of marks",
+     "total, average and grade by thresholds",
+     "write results to a new CSV",
+     "handle bad rows"
+    ],
+    "sql": "",
+    "traps": [],
+    "practice": [
+     "Deliver script + output CSV + README"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "P2",
+    "title": "Mini-project: Expense tracker CLI",
+    "goal": "Build a small command-line tool.",
+    "covers": [
+     "Add expenses (date, category, amount)",
+     "store in CSV/JSON",
+     "totals by category and date range",
+     "menu loop",
+     "validation"
+    ],
+    "sql": "",
+    "traps": [],
+    "practice": [
+     "Deliver script + sample data + README"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "P3",
+    "title": "Mini-project: Basic data analysis tool",
+    "goal": "Prepare for pandas by doing it by hand.",
+    "covers": [
+     "Load a CSV",
+     "show first rows",
+     "compute mean, median, mode, std by hand",
+     "text histogram or matplotlib bar chart"
+    ],
+    "sql": "",
+    "traps": [],
+    "practice": [
+     "Deliver script + chart + README"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 60 h"
+ },
+ {
+  "code": "2",
+  "title": "NumPy & pandas Basics",
+  "outcome": "Load, inspect, select, filter and clean tables with pandas.",
+  "topics": [
+   {
+    "n": "30",
+    "title": "NumPy arrays",
+    "goal": "Use arrays instead of lists for numbers.",
+    "covers": [
+     "Why NumPy (speed)",
+     "ndarray",
+     "dtype",
+     "shape, ndim, size",
+     "array, zeros, ones, arange, linspace",
+     "reshape",
+     "list vs array"
+    ],
+    "sql": "A column as a vector",
+    "traps": [
+     "dtype upcasting",
+     "shape mismatch"
+    ],
+    "practice": [
+     "Price array",
+     "discounted prices",
+     "reshape"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "31",
+    "title": "Indexing, slicing & boolean masks",
+    "goal": "Select parts of arrays.",
+    "covers": [
+     "1D/2D indexing and slicing",
+     "views vs copies",
+     "boolean masks",
+     "fancy indexing",
+     "np.where",
+     "sort and argsort"
+    ],
+    "sql": "WHERE",
+    "traps": [
+     "Modifying a view changes the original",
+     "& vs and",
+     "missing brackets around conditions"
+    ],
+    "practice": [
+     "Orders above ₹50,000",
+     "replace values with where"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "32",
+    "title": "Maths, broadcasting & statistics",
+    "goal": "Compute on whole arrays at once.",
+    "covers": [
+     "Vectorised operations",
+     "broadcasting rules",
+     "sum/mean/median/std/var/min/max/percentile",
+     "axis",
+     "cumsum",
+     "NaN-aware functions",
+     "correlation"
+    ],
+    "sql": "AVG, STDDEV, PERCENTILE_CONT",
+    "traps": [
+     "Axis confusion",
+     "NaN propagates",
+     "integer overflow"
+    ],
+    "practice": [
+     "Z-scores",
+     "column means",
+     "cumulative revenue"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "33",
+    "title": "Random numbers & reproducibility",
+    "goal": "Simulate and sample reproducibly.",
+    "covers": [
+     "default_rng and seeds",
+     "integers, random, choice, normal",
+     "shuffle and sample",
+     "simple simulations (coin, dice)",
+     "bootstrap idea"
+    ],
+    "sql": "RANDOM(), TABLESAMPLE",
+    "traps": [
+     "Global seed vs generator",
+     "same seed, different order of calls"
+    ],
+    "practice": [
+     "Simulate delivery times",
+     "sample customers"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "34",
+    "title": "Series",
+    "goal": "Work with one labelled column.",
+    "covers": [
+     "Create from list/dict/array",
+     "index and labels vs positions",
+     "vectorised operations",
+     "alignment",
+     "name and dtype",
+     "head, sum, value_counts"
+    ],
+    "sql": "A single column",
+    "traps": [
+     "Index alignment surprises",
+     "label vs position"
+    ],
+    "practice": [
+     "Price series operations"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "35",
+    "title": "DataFrame",
+    "goal": "Work with a table.",
+    "covers": [
+     "Create from dict, list of dicts, NumPy",
+     "columns, index, shape",
+     "info, describe, head, tail",
+     "dtypes",
+     "select one vs several columns",
+     "rename, drop",
+     "set_index/reset_index",
+     "copy"
+    ],
+    "sql": "A table",
+    "traps": [
+     "SettingWithCopyWarning",
+     "confusing index with a column"
+    ],
+    "practice": [
+     "Build a small orders DataFrame"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "36",
+    "title": "Reading & writing data",
+    "goal": "Load real data into pandas and save results.",
+    "covers": [
+     "read_csv (sep, usecols, dtype, parse_dates, nrows, na_values)",
+     "read_excel (sheets)",
+     "read_json",
+     "read_sql",
+     "parquet",
+     "to_csv/to_excel with index=False",
+     "encodings",
+     "first look at the RetailMart tables"
+    ],
+    "sql": "COPY and \\copy",
+    "traps": [
+     "Index column on export",
+     "IDs read as numbers (lost zeros)",
+     "wrong encoding"
+    ],
+    "practice": [
+     "Load orders, customers and stores",
+     "inspect each"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "37",
+    "title": "Selecting: [], loc, iloc",
+    "goal": "Pick rows and columns exactly.",
+    "covers": [
+     "[] vs .loc vs .iloc",
+     "label vs position slices (loc end is inclusive)",
+     "several columns",
+     "boolean rows",
+     ".at/.iat",
+     "selecting with an index",
+     "MultiIndex intro"
+    ],
+    "sql": "SELECT columns, LIMIT",
+    "traps": [
+     "Chained indexing",
+     "loc inclusive end",
+     "iloc out of range"
+    ],
+    "practice": [
+     "Pick columns and row ranges from orders"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "38",
+    "title": "Filtering",
+    "goal": "Keep only the rows you need.",
+    "covers": [
+     "Boolean conditions",
+     "& | ~ with brackets",
+     "isin",
+     "between",
+     "str.contains",
+     "query()",
+     "isna",
+     "combining filters"
+    ],
+    "sql": "WHERE, IN, BETWEEN, LIKE",
+    "traps": [
+     "Using and/or",
+     "missing brackets",
+     "NaN comparisons"
+    ],
+    "practice": [
+     "Delivered orders above ₹1 lakh in one city"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "39",
+    "title": "Sorting, head, unique",
+    "goal": "Rank and summarise values.",
+    "covers": [
+     "sort_values (several keys)",
+     "sort_index",
+     "nlargest/nsmallest",
+     "head/tail",
+     "unique/nunique",
+     "value_counts (normalize)",
+     "duplicated preview",
+     "sample"
+    ],
+    "sql": "ORDER BY, LIMIT, DISTINCT",
+    "traps": [
+     "Sorting strings that look like numbers",
+     "forgetting ascending list"
+    ],
+    "practice": [
+     "Top 10 customers by spend"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "40",
+    "title": "New columns",
+    "goal": "Create derived columns the vectorised way.",
+    "covers": [
+     "Assigning columns",
+     "assign()",
+     "vectorised arithmetic",
+     "apply (row/column)",
+     "map and replace",
+     "np.where and np.select",
+     "clip",
+     "round",
+     "vectorised vs apply speed"
+    ],
+    "sql": "Derived columns and CASE",
+    "traps": [
+     "Using apply when a vectorised form exists",
+     "SettingWithCopy",
+     "axis=1 slowness"
+    ],
+    "practice": [
+     "Margin %",
+     "discount tier"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "41",
+    "title": "Missing values",
+    "goal": "Find, understand and treat missing data.",
+    "covers": [
+     "isna/notna",
+     "counting",
+     "dropna (how, subset)",
+     "fillna (value, ffill, bfill)",
+     "interpolate",
+     "replacing placeholders",
+     "NaN vs None vs pd.NA",
+     "effect on aggregates"
+    ],
+    "sql": "NULL handling, COALESCE",
+    "traps": [
+     "NaN != NaN",
+     "dropping too much",
+     "filling before splitting data"
+    ],
+    "practice": [
+     "Missing report",
+     "sensible fills per column"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "42",
+    "title": "Data types & casting",
+    "goal": "Get dtypes right.",
+    "covers": [
+     "dtypes",
+     "astype",
+     "to_numeric(errors='coerce')",
+     "to_datetime",
+     "category",
+     "nullable dtypes (Int64)",
+     "memory_usage",
+     "downcasting",
+     "object columns"
+    ],
+    "sql": "CAST and ::",
+    "traps": [
+     "IDs as floats",
+     "mixed object columns",
+     "silent coercion"
+    ],
+    "practice": [
+     "Fix types of a messy table"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "43",
+    "title": "String & date accessors",
+    "goal": "Clean text and dates in whole columns.",
+    "covers": [
+     ".str (lower, strip, split, contains, replace, extract, len)",
+     ".dt (year, month, dayofweek, strftime, normalize)",
+     "Timedelta",
+     "Period",
+     "mixed date formats"
+    ],
+    "sql": "String and date functions",
+    "traps": [
+     "Forgetting .str",
+     "regex=True defaults",
+     "timezone-naive vs aware"
+    ],
+    "practice": [
+     "Clean city names",
+     "order month and weekday"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 28 h"
+ },
+ {
+  "code": "3",
+  "title": "Analysis with pandas",
+  "outcome": "Answer business questions: group, pivot, join, rank, clean and summarise.",
+  "topics": [
+   {
+    "n": "44",
+    "title": "groupby & aggregation",
+    "goal": "Split-apply-combine.",
+    "covers": [
+     "groupby",
+     "agg (sum, mean, count, nunique)",
+     "several aggregations",
+     "named aggregation",
+     "several keys",
+     "as_index",
+     "size vs count",
+     "transform",
+     "filter",
+     "reset_index"
+    ],
+    "sql": "GROUP BY and HAVING",
+    "traps": [
+     "count vs size",
+     "NaN keys dropped",
+     "forgetting reset_index"
+    ],
+    "practice": [
+     "Revenue by city and status"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "45",
+    "title": "Pivot tables & crosstab",
+    "goal": "Reshape summaries into grids.",
+    "covers": [
+     "pivot_table (values, index, columns, aggfunc, fill_value, margins)",
+     "crosstab",
+     "normalize"
+    ],
+    "sql": "Conditional aggregation with CASE",
+    "traps": [
+     "Wrong aggfunc",
+     "NaN cells",
+     "duplicate index error in pivot()"
+    ],
+    "practice": [
+     "Monthly revenue by category grid"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "46",
+    "title": "Reshaping: melt, stack, unstack",
+    "goal": "Move between wide and long.",
+    "covers": [
+     "melt",
+     "pivot",
+     "stack/unstack",
+     "wide vs long",
+     "flattening MultiIndex columns",
+     "explode"
+    ],
+    "sql": "UNNEST, crosstab()",
+    "traps": [
+     "Losing id_vars",
+     "MultiIndex confusion"
+    ],
+    "practice": [
+     "Wide KPI table to long and back"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "47",
+    "title": "merge: all the JOINs",
+    "goal": "Combine tables correctly.",
+    "covers": [
+     "inner/left/right/outer",
+     "on, left_on/right_on",
+     "suffixes",
+     "validate",
+     "indicator",
+     "many-to-many explosion",
+     "merge on index",
+     "join()"
+    ],
+    "sql": "INNER/LEFT/RIGHT/FULL JOIN",
+    "traps": [
+     "Duplicate keys multiply rows",
+     "key dtype mismatch",
+     "lost rows with inner"
+    ],
+    "practice": [
+     "Orders + stores + customers"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "48",
+    "title": "concat & anti-joins",
+    "goal": "Stack tables and find what never happened.",
+    "covers": [
+     "concat (axis, ignore_index, keys)",
+     "anti-join with indicator or ~isin",
+     "semi-join",
+     "set operations via concat/drop_duplicates/merge"
+    ],
+    "sql": "UNION, EXCEPT, LEFT JOIN ... IS NULL",
+    "traps": [
+     "Misaligned columns",
+     "forgetting ignore_index"
+    ],
+    "practice": [
+     "Customers who never ordered"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "49",
+    "title": "Window-style: rank, cumsum, rolling",
+    "goal": "Running totals, ranks and moving averages.",
+    "covers": [
+     "rank (methods)",
+     "cumsum/cumprod",
+     "shift/diff/pct_change",
+     "rolling and expanding",
+     "ewm intro",
+     "groupby + transform",
+     "top-N per group",
+     "month-on-month growth"
+    ],
+    "sql": "Window functions: ROW_NUMBER, RANK, LAG, SUM() OVER",
+    "traps": [
+     "Wrong sort before shift",
+     "min_periods",
+     "rank ties"
+    ],
+    "practice": [
+     "Running revenue",
+     "MoM growth",
+     "top 3 products per category"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "50",
+    "title": "Duplicates & cleaning",
+    "goal": "Make dirty data trustworthy.",
+    "covers": [
+     "duplicated/drop_duplicates (subset, keep)",
+     "standardising text",
+     "fixing types",
+     "trimming",
+     "replace",
+     "validation checks and assert",
+     "a data-quality report"
+    ],
+    "sql": "ROW_NUMBER de-duplication",
+    "traps": [
+     "Dropping the wrong duplicate",
+     "hidden whitespace"
+    ],
+    "practice": [
+     "Clean a messy customer file"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "51",
+    "title": "Outliers & binning",
+    "goal": "Spot extremes and make buckets.",
+    "covers": [
+     "IQR and z-score",
+     "clip/winsorise",
+     "cut and qcut",
+     "custom bins and labels",
+     "value_counts on bins"
+    ],
+    "sql": "WIDTH_BUCKET, NTILE",
+    "traps": [
+     "Deleting valid extremes",
+     "qcut with duplicate edges"
+    ],
+    "practice": [
+     "Order-value bands",
+     "flag outliers"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "52",
+    "title": "Time series with pandas",
+    "goal": "Analyse data over time.",
+    "covers": [
+     "DatetimeIndex",
+     "resample (D, W, M, Q)",
+     "rolling on time",
+     "shift by frequency",
+     "date_range",
+     "asfreq",
+     "filling missing dates",
+     "year-on-year",
+     "seasonality intro"
+    ],
+    "sql": "generate_series gap filling, DATE_TRUNC",
+    "traps": [
+     "Unsorted index",
+     "missing periods",
+     "resample on a non-index column"
+    ],
+    "practice": [
+     "Monthly revenue",
+     "fill missing days"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "53",
+    "title": "Subtotals & percent of total",
+    "goal": "Totals, shares and Pareto.",
+    "covers": [
+     "groupby + transform('sum')",
+     "pivot margins",
+     "ROLLUP-style subtotals",
+     "cumulative %",
+     "the 80/20 rule",
+     "share of total"
+    ],
+    "sql": "ROLLUP, CUBE, GROUPING SETS",
+    "traps": [
+     "Percent of the wrong total",
+     "rounding sums"
+    ],
+    "practice": [
+     "Category share",
+     "top customers making 80% of revenue"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "54",
+    "title": "describe, quantiles & correlation",
+    "goal": "Summarise distributions and relationships.",
+    "covers": [
+     "describe",
+     "quantile",
+     "mean/median/mode/std",
+     "skew intro",
+     "corr/cov",
+     "correlation vs causation",
+     "groupby describe"
+    ],
+    "sql": "PERCENTILE_CONT, CORR",
+    "traps": [
+     "Correlation read as causation",
+     "Pearson on skewed data"
+    ],
+    "practice": [
+     "Profile the orders table"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "55",
+    "title": "Performance",
+    "goal": "Make pandas code fast enough.",
+    "covers": [
+     "timeit",
+     "vectorise vs apply vs loops",
+     "memory usage",
+     "downcasting",
+     "category",
+     "chunked read_csv",
+     "usecols",
+     "parquet",
+     "avoiding copies",
+     "profiling basics"
+    ],
+    "sql": "Indexes and EXPLAIN as analogies",
+    "traps": [
+     "Premature optimisation",
+     "chained copies",
+     "reading everything when a slice is needed"
+    ],
+    "practice": [
+     "Speed up a slow cleaning script"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 24 h"
+ },
+ {
+  "code": "4",
+  "title": "Visualisation & Storytelling",
+  "outcome": "Choose the right chart, build it and tell the story.",
+  "topics": [
+   {
+    "n": "56",
+    "title": "matplotlib basics",
+    "goal": "Draw the standard charts.",
+    "covers": [
+     "Figure and Axes",
+     "pyplot vs object-oriented",
+     "line, bar, barh, hist, scatter, pie (and why to avoid it)",
+     "show",
+     "notebooks"
+    ],
+    "sql": "Charts from query results",
+    "traps": [
+     "Mixing pyplot state and Axes",
+     "forgetting to sort bars"
+    ],
+    "practice": [
+     "Revenue by city bar chart"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "57",
+    "title": "Customising charts",
+    "goal": "Make charts clean and shareable.",
+    "covers": [
+     "Titles, labels, ticks, legends",
+     "colours and styles",
+     "subplots and gridspec",
+     "figsize",
+     "annotations",
+     "saving (png, svg, pdf, dpi)",
+     "₹ lakh/crore axis formatting"
+    ],
+    "sql": "Formatting with TO_CHAR",
+    "traps": [
+     "Overlapping labels",
+     "saving a blank figure"
+    ],
+    "practice": [
+     "Two-panel revenue and orders figure"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "58",
+    "title": "Choosing the right chart",
+    "goal": "Match the question to the chart.",
+    "covers": [
+     "Comparison, trend, distribution, relationship, composition",
+     "misleading charts",
+     "small multiples",
+     "colour accessibility"
+    ],
+    "sql": "Choosing the right GROUP BY",
+    "traps": [
+     "Truncated axes",
+     "3D and pie overuse"
+    ],
+    "practice": [
+     "Redraw 3 bad charts"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "59",
+    "title": "seaborn",
+    "goal": "Statistical charts in few lines.",
+    "covers": [
+     "Themes",
+     "histplot/kdeplot",
+     "boxplot/violinplot",
+     "scatterplot/regplot",
+     "barplot with intervals",
+     "heatmap (correlations)",
+     "pairplot",
+     "countplot",
+     "catplot/FacetGrid",
+     "palettes"
+    ],
+    "sql": "Distribution queries",
+    "traps": [
+     "Unreadable heatmaps",
+     "overplotting"
+    ],
+    "practice": [
+     "Correlation heatmap",
+     "distribution by group"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "60",
+    "title": "plotly: interactive charts",
+    "goal": "Make charts people can explore.",
+    "covers": [
+     "plotly express line/bar/scatter/histogram",
+     "hover",
+     "facets",
+     "export HTML",
+     "when to use interactive charts"
+    ],
+    "sql": "Dashboards on top of SQL",
+    "traps": [
+     "Huge interactive figures",
+     "exporting without data"
+    ],
+    "practice": [
+     "Interactive revenue explorer"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "61",
+    "title": "Dashboard-style summaries",
+    "goal": "Build a one-page summary.",
+    "covers": [
+     "KPI table",
+     "multi-panel figure",
+     "small multiples",
+     "sparklines",
+     "conditional formatting with Styler",
+     "summary tables"
+    ],
+    "sql": "KPI queries",
+    "traps": [
+     "Too many metrics",
+     "no clear headline"
+    ],
+    "practice": [
+     "One-page store scorecard"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "62",
+    "title": "Reporting to Excel & storytelling",
+    "goal": "Deliver results people can use.",
+    "covers": [
+     "to_excel with xlsxwriter/openpyxl",
+     "formatting",
+     "several sheets",
+     "charts in Excel",
+     "narrative structure (setup, insight, action)",
+     "a one-slide summary"
+    ],
+    "sql": "Exporting query results",
+    "traps": [
+     "Hard-coded numbers",
+     "unformatted exports"
+    ],
+    "practice": [
+     "Weekly report workbook with a summary"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 14 h"
+ },
+ {
+  "code": "5",
+  "title": "Analyst Toolkit",
+  "outcome": "Use Python for the work analysts actually do beyond tables.",
+  "topics": [
+   {
+    "n": "63",
+    "title": "Data preprocessing",
+    "goal": "Prepare data for modelling.",
+    "covers": [
+     "Scaling (standard, min-max)",
+     "encoding (one-hot, ordinal)",
+     "train/test split",
+     "data leakage",
+     "outliers",
+     "class imbalance (mention)",
+     "a first sklearn pipeline"
+    ],
+    "sql": "Feature columns in SQL",
+    "traps": [
+     "Fitting scalers on all data (leakage)",
+     "one-hot explosion"
+    ],
+    "practice": [
+     "Prepare orders for a model (bridge to the ML course)"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "64",
+    "title": "SQL from Python",
+    "goal": "Query databases from code.",
+    "covers": [
+     "sqlite3 basics",
+     "parameterised queries and SQL injection",
+     "pandas read_sql and to_sql",
+     "SQLAlchemy engine",
+     "connecting to PostgreSQL",
+     "when to use SQL vs pandas"
+    ],
+    "sql": "Everything from the SQL course, called from Python",
+    "traps": [
+     "String-formatting SQL",
+     "leaving connections open"
+    ],
+    "practice": [
+     "Run RetailMart queries from Python"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "65",
+    "title": "Cohort & RFM",
+    "goal": "Retention and customer segments.",
+    "covers": [
+     "Cohort month",
+     "retention table",
+     "RFM scoring with qcut",
+     "segments",
+     "interpreting and acting"
+    ],
+    "sql": "Cohort and RFM from the SQL practice banks",
+    "traps": [
+     "Cohort by the wrong date",
+     "scoring direction for recency"
+    ],
+    "practice": [
+     "Retention heatmap",
+     "RFM segments"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "66",
+    "title": "Funnels",
+    "goal": "Where do users drop off?",
+    "covers": [
+     "Stages",
+     "conversion and drop-off",
+     "per-channel funnels",
+     "time to convert"
+    ],
+    "sql": "Conversion funnels in SQL",
+    "traps": [
+     "Counting events, not users",
+     "out-of-order stages"
+    ],
+    "practice": [
+     "Order funnel by channel"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "67",
+    "title": "A/B testing basics",
+    "goal": "Decide if a difference is real.",
+    "covers": [
+     "Hypotheses",
+     "p-value",
+     "t-test",
+     "chi-square",
+     "sample size basics",
+     "peeking and multiple tests",
+     "scipy.stats",
+     "effect size"
+    ],
+    "sql": "Aggregates per variant",
+    "traps": [
+     "Stopping early",
+     "ignoring sample size",
+     "p-value misread"
+    ],
+    "practice": [
+     "Test a discount campaign"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "68",
+    "title": "Automating a report",
+    "goal": "Turn analysis into a repeatable script.",
+    "covers": [
+     "Script structure",
+     "functions",
+     "main guard",
+     "argparse",
+     "configuration",
+     "logging",
+     "scheduling (cron, Task Scheduler)",
+     "email-ready outputs"
+    ],
+    "sql": "Scheduled queries",
+    "traps": [
+     "Hard-coded paths",
+     "no logging"
+    ],
+    "practice": [
+     "Weekly sales report script"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "69",
+    "title": "APIs with requests",
+    "goal": "Pull data from web services.",
+    "covers": [
+     "HTTP basics",
+     "GET and params",
+     "JSON",
+     "status codes",
+     "keys and secrets safety",
+     "rate limits",
+     "pagination",
+     "error handling",
+     "saving results",
+     "browser note (CORS)"
+    ],
+    "sql": "External tables",
+    "traps": [
+     "Committing keys",
+     "ignoring status codes"
+    ],
+    "practice": [
+     "Fetch and tabulate a public API"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "70",
+    "title": "Web scraping basics",
+    "goal": "Collect public data responsibly.",
+    "covers": [
+     "robots.txt, ethics and terms",
+     "requests + BeautifulSoup",
+     "selectors",
+     "pd.read_html",
+     "polite scraping"
+    ],
+    "sql": "n/a",
+    "traps": [
+     "Scraping against terms",
+     "brittle selectors"
+    ],
+    "practice": [
+     "Scrape one public table"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "71",
+    "title": "Jupyter best practices & project structure",
+    "goal": "Keep analysis reproducible.",
+    "covers": [
+     "Notebook hygiene",
+     "restart and run all",
+     "folders (data, src, notebooks, outputs)",
+     "requirements.txt",
+     "README",
+     "reproducibility",
+     "notebooks to scripts"
+    ],
+    "sql": "Versioned SQL scripts",
+    "traps": [
+     "Out-of-order cells",
+     "hidden state"
+    ],
+    "practice": [
+     "Restructure a messy notebook"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 18 h"
+ },
+ {
+  "code": "6",
+  "title": "Interview Prep & Capstone",
+  "outcome": "Be ready for analyst Python interviews and finish a portfolio project.",
+  "topics": [
+   {
+    "n": "72",
+    "title": "Core Python interview patterns",
+    "goal": "Solve the standard questions.",
+    "covers": [
+     "Reverse, palindrome, anagram, two-sum, frequency, de-duplicate, flatten, FizzBuzz",
+     "two pointers",
+     "sliding window intro",
+     "Big-O of list/dict/set operations",
+     "== vs is",
+     "shallow vs deep copy",
+     "generators",
+     "decorators",
+     "mutable default trap"
+    ],
+    "sql": "SQL interview patterns",
+    "traps": [
+     "Explaining without complexity",
+     "off-by-one"
+    ],
+    "practice": [
+     "20 timed problems"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "73",
+    "title": "pandas interview patterns",
+    "goal": "Solve the standard data tasks.",
+    "covers": [
+     "Top-N per group",
+     "running totals",
+     "retention",
+     "de-duplicate",
+     "pivot",
+     "merge pitfalls",
+     "apply vs vectorise",
+     "NaN handling",
+     "second-highest",
+     "df.copy and SettingWithCopy",
+     "transform vs agg"
+    ],
+    "sql": "SQL window and join interview questions",
+    "traps": [
+     "Row-by-row thinking",
+     "forgetting to reset_index"
+    ],
+    "practice": [
+     "20 timed tasks"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "74",
+    "title": "SQL vs pandas side by side",
+    "goal": "Move fluently between the two.",
+    "covers": [
+     "30 tasks solved both ways",
+     "performance trade-offs",
+     "when to use which"
+    ],
+    "sql": "The whole SQL course",
+    "traps": [
+     "Pulling millions of rows into pandas"
+    ],
+    "practice": [
+     "Translate 15 queries both directions"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "75",
+    "title": "Algorithms basics",
+    "goal": "Know the basics interviewers expect.",
+    "covers": [
+     "Linear and binary search",
+     "bubble, selection, insertion, merge and quick sort (concepts)",
+     "Big-O",
+     "recursion vs iteration",
+     "stacks, queues and hash tables in use"
+    ],
+    "sql": "n/a",
+    "traps": [
+     "Binary search off-by-one",
+     "unstable assumptions"
+    ],
+    "practice": [
+     "10 classic problems"
+    ],
+    "status": "planned"
+   },
+   {
+    "n": "C",
+    "title": "Capstone: RetailMart analysis end to end",
+    "goal": "Deliver a portfolio-grade analysis.",
+    "covers": [
+     "Frame the question",
+     "load and clean",
+     "analyse",
+     "visualise",
+     "recommend",
+     "present"
+    ],
+    "sql": "A real business question across RetailMart",
+    "traps": [
+     "Analysis without a decision",
+     "no README"
+    ],
+    "practice": [
+     "Notebook + 1-page summary + GitHub repo"
+    ],
+    "status": "planned"
+   }
+  ],
+  "hours": "about 16 h"
+ }
+]
