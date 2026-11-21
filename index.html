@@ -1,68 +1,1589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>import TheShiraverse | Python for Data Analysts</title>
-<meta name="description" content="Free Python and pandas course for data analysts. Run code in your browser on real Indian retail data. By Shiraj Ahmad.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>import TheShiraverse — Python for Data Analysts</title>
+<meta name="description" content="A self-paced Python course for data analysts: from your first print() to pandas, run in your browser. Free to start.">
 <link rel="canonical" href="https://python.theshiraverse.com/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="TheShiraverse">
-<meta property="og:title" content="import TheShiraverse | Python for Data Analysts"><meta property="og:description" content="Free Python and pandas course for data analysts. Run code in your browser on real Indian retail data. By Shiraj Ahmad.">
-<meta property="og:url" content="https://python.theshiraverse.com/"><meta property="og:image" content="https://python.theshiraverse.com/assets/og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TheShiraverse">
+<meta property="og:title" content="import TheShiraverse: learn Python">
+<meta property="og:description" content="A self-paced Python course for data analysts: from your first print() to pandas, run in your browser. Free to start.">
+<meta property="og:url" content="https://python.theshiraverse.com/">
+<meta property="og:image" content="https://python.theshiraverse.com/assets/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/chrome.css">
-<style>
-:root{--bg:#0a0e17;--panel:#111827;--card:#1a1f2e;--border:#2a3040;--text:#f1f5f9;--text2:#94a3b8;--muted:#8492a6;--accent:#3b82f6;--accent-l:#60a5fa;--green:#22c55e;--yellow:#fbbf24}
-*{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--accent-l);text-decoration:none}a:hover{text-decoration:underline}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent-l);outline-offset:2px}
-nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 24px;border-bottom:1px solid var(--border)}
-nav .brand{font:600 .95rem 'JetBrains Mono',monospace;color:var(--text);margin-right:auto}
-nav .l{color:var(--text2);font-size:.88rem}nav .l.on{color:var(--text)}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-code,.mono{font-family:'JetBrains Mono',monospace}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;padding:11px 22px;border-radius:10px;margin:4px 8px 4px 0}.btn:hover{text-decoration:none;background:var(--accent-l)}
-.btn.s{background:transparent;border:1px solid var(--border);color:var(--text)}
-h2{font-size:1.5rem;margin:48px 0 6px}.sub{color:var(--text2);margin-bottom:20px}
-.hero{padding:72px 0 24px}
-.hero .cmd{font:600 clamp(1.7rem,5vw,3rem)/1.2 'JetBrains Mono',monospace}
-.hero .cmd .k{color:#c084fc}.hero .cmd .n{color:var(--accent-l)}
-.hero p{color:var(--text2);max-width:640px;margin:16px 0 24px;font-size:1.05rem}
-.shell{background:#0d1220;border:1px solid var(--border);border-radius:12px;padding:16px 18px;font:400 .9rem/1.6 'JetBrains Mono',monospace;margin:8px 0 20px;max-width:560px}
-.shell .p{color:var(--muted)}.shell .o{color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mod{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
-.mod .n{color:var(--accent-l);font-size:.75rem}.mod h3{font-size:1.05rem;margin:6px 0}.mod p{color:var(--text2);font-size:.9rem}.mod .t{color:var(--muted);font-size:.78rem}
-.soon{display:inline-block;background:rgba(251,191,36,.12);color:var(--yellow);font-size:.78rem;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:s}
-.steps div{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;font-size:.9rem}
-.steps b{display:block;color:var(--accent-l);font-size:.75rem;margin-bottom:4px}
-@media(max-width:900px){.grid,.steps{grid-template-columns:1fr 1fr}}@media(max-width:560px){.grid,.steps{grid-template-columns:1fr}}
-</style>
+<meta name="twitter:title" content="import TheShiraverse: learn Python">
+<meta name="twitter:description" content="A self-paced Python course for data analysts: from your first print() to pandas, run in your browser. Free to start.">
+<meta name="twitter:image" content="https://python.theshiraverse.com/assets/og.png">
+
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/chrome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a1f2e;
+            --bg-card-hover: #242b3d;
+            --border: #2a3040;
+            --border-light: #374151;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #8492a6;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-glow: rgba(59,130,246,0.3);
+            --green: #22c55e;
+            --green-glow: rgba(34,197,94,0.2);
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --purple: #a855f7;
+            --cyan: #06b6d4;
+            --pink: #ec4899;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* ── REVEAL ANIMATION ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: rgba(10,14,23,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(42,48,64,0.5);
+            padding: 0 2rem;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        nav.scrolled { background: rgba(10,14,23,0.95); }
+        .news-strip {
+            background: linear-gradient(90deg, rgba(59,130,246,0.14), rgba(6,182,212,0.14));
+            border-top: 1px solid rgba(59,130,246,0.3);
+            padding: 8px 0; overflow: hidden; white-space: nowrap;
+            margin: 0 -2rem; /* nav has padding:0 2rem; cancel it so the strip reaches the true screen edges */
+        }
+        @media (max-width: 820px) { .news-strip { margin: 0 -1rem; } }
+        .news-track {
+            display: inline-flex; align-items: center; gap: 0.6rem; width: max-content;
+            animation: news-scroll 32s linear infinite;
+        }
+        @keyframes news-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .news-pill {
+            flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-primary); text-decoration: none; font-size: 0.83rem;
+            padding: 3px 22px; border-right: 1px solid rgba(148,163,184,0.25);
+        }
+        .news-pill:hover { color: var(--accent-light); text-decoration: none; }
+        .news-pill .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+        .news-pill b { color: var(--accent-light); }
+        @media (max-width: 600px) { .news-pill { font-size: 0.76rem; padding: 3px 14px; } }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-brand .sql { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.3rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.35rem 0.45rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            line-height: 0;
+        }
+        .nav-toggle svg { display: block; }
+        #accessToggle[hidden], #accessOverlay[hidden] { display: none !important; }
+        .nav-access-btn {
+            background: rgba(59,130,246,0.15) !important;
+            color: var(--accent) !important;
+            border: 1px solid rgba(59,130,246,0.3);
+        }
+        .nav-access-btn:hover { background: rgba(59,130,246,0.25) !important; }
+        .nav-access-btn.granted {
+            background: rgba(34,197,94,0.15) !important;
+            color: var(--green) !important;
+            border-color: rgba(34,197,94,0.3);
+        }
+
+        /* ── ACCESS MODAL ── */
+        .access-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .access-overlay.show { display: flex; opacity: 1; }
+        .access-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            width: 420px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+        .access-overlay.show .access-modal { transform: scale(1); }
+        .access-modal h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .access-modal p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .access-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .access-input-group input {
+            flex: 1;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.7rem 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.05em;
+            transition: border-color 0.2s;
+        }
+        .access-input-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .access-input-group button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .access-input-group button:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .access-status {
+            font-size: 0.85rem;
+            min-height: 1.2rem;
+        }
+        .access-status.granted { color: var(--green); }
+        .access-status.error { color: var(--red); }
+        .access-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.3rem;
+        }
+        .access-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.25rem 0;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .access-divider::before, .access-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .request-toggle {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            transition: color 0.2s;
+        }
+        .request-toggle:hover { color: var(--accent-light); }
+        .request-form {
+            display: none;
+            text-align: left;
+            margin-top: 0.75rem;
+        }
+        .request-form.show { display: block; }
+        .request-form label {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            margin-top: 0.75rem;
+        }
+        .request-form label:first-child { margin-top: 0; }
+        .request-form input, .request-form select {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.6rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+        .request-form input:focus, .request-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .request-form select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2rem; }
+        .request-form select option { background: var(--bg-secondary); color: var(--text-primary); }
+        .request-submit {
+            width: 100%;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            color: #fff;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .request-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(168,85,247,0.3); }
+        .request-status {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            min-height: 1rem;
+            text-align: center;
+        }
+        .request-status.sent { color: var(--green); }
+        .request-status.req-error { color: var(--red); }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: calc(8rem + 34px) 2rem 5rem;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(168,85,247,0.06) 40%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.2);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── HERO STATS ── */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 1rem 1.8rem;
+            text-align: center;
+            min-width: 120px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+        .stat-card:hover {
+            border-color: var(--accent);
+            background: rgba(59,130,246,0.05);
+            transform: translateY(-2px);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+            line-height: 1.2;
+        }
+        .stat-card:nth-child(2) .stat-number { color: var(--purple); }
+        .stat-card:nth-child(3) .stat-number { color: var(--cyan); }
+        .stat-card:nth-child(4) .stat-number { color: var(--green); }
+        .stat-card:nth-child(5) .stat-number { color: var(--orange); }
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        /* ── HERO BUTTONS ── */
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+        }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59,130,246,0.4); }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--text-muted); transform: translateY(-2px); }
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(34,197,94,0.3);
+        }
+        .btn-green:hover { background: #16a34a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(34,197,94,0.4); }
+        .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .hero-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── SECTION ── */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        .section + .section { border-top: 1px solid rgba(42,48,64,0.5); }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+        .badge {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .badge-free { background: rgba(34,197,94,0.15); color: var(--green); }
+        .badge-gated { background: rgba(245,158,11,0.15); color: var(--orange); }
+
+        /* ── FEATURES GRID ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .fi-blue { background: rgba(59,130,246,0.15); }
+        .fi-purple { background: rgba(168,85,247,0.15); }
+        .fi-green { background: rgba(34,197,94,0.15); }
+        .fi-cyan { background: rgba(6,182,212,0.15); }
+        .fi-orange { background: rgba(245,158,11,0.15); }
+        .fi-pink { background: rgba(236,72,153,0.15); }
+        .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .feature-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ── CARDS ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .card-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: rgba(59,130,246,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .card-body { flex: 1; min-width: 0; }
+        .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .card p { font-size: 0.85rem; color: var(--text-secondary); }
+        .card-meta {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* ── GATED ── */
+        .card.gated.locked, .batch-card.gated.locked {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+        .card.gated.locked:hover, .batch-card.gated.locked:hover { opacity: 0.8; }
+        .card.gated.locked .card-icon { position: relative; }
+        .card.gated.locked .card-icon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+        }
+        .batch-card.gated.locked::after {
+            content: '';
+            position: absolute;
+            top: 0.6rem; right: 0.6rem;
+            width: 20px; height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z'/%3E%3C/svg%3E") center/contain no-repeat;
+            opacity: 0.5;
+        }
+
+        /* ── CURRICULUM TIMELINE ── */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .week-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .week-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .week-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .week-num {
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+        .week-days {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .week-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .week-topics {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .week-topics li { display: contents; }
+        .topic-chip {
+            font-size: 0.75rem;
+            font-family: inherit;
+            color: var(--text-secondary);
+            background: rgba(255,255,255,0.04);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+        .topic-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+        .topic-chip.active { background: rgba(59,130,246,0.15); border-color: var(--accent); color: var(--accent-light); }
+        .topic-glimpse {
+            display: none; margin-top: 0.8rem; padding: 0.8rem 1rem;
+            background: rgba(59,130,246,0.06); border-left: 2px solid var(--accent);
+            border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;
+        }
+        .topic-glimpse.show { display: block; }
+        .week-topics li.sp {
+            background: rgba(245,158,11,0.10);
+            color: #fbbf24;
+            border-color: rgba(245,158,11,0.35);
+        }
+        .week-topics li.sp::after {
+            content: " · self-practice";
+            opacity: 0.65;
+        }
+        .curriculum-note {
+            margin: 1.5rem auto 0;
+            max-width: 760px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .curriculum-note .sp-key {
+            display: inline-block;
+            width: 0.7rem;
+            height: 0.7rem;
+            background: rgba(245,158,11,0.25);
+            border: 1px solid rgba(245,158,11,0.5);
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 0.3rem;
+        }
+
+        /* ── PRACTICE ARENA ── */
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .practice-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .practice-card:hover { transform: translateY(-3px); }
+        .practice-card.easy { border-color: rgba(34,197,94,0.3); }
+        .practice-card.easy:hover { border-color: var(--green); box-shadow: 0 10px 30px rgba(34,197,94,0.1); }
+        .practice-card.medium { border-color: rgba(245,158,11,0.3); }
+        .practice-card.medium:hover { border-color: var(--orange); box-shadow: 0 10px 30px rgba(245,158,11,0.1); }
+        .practice-card.hard { border-color: rgba(239,68,68,0.3); }
+        .practice-card.hard:hover { border-color: var(--red); box-shadow: 0 10px 30px rgba(239,68,68,0.1); }
+        .practice-card.expert { border-color: rgba(168,85,247,0.3); }
+        .practice-card.expert:hover { border-color: var(--purple); box-shadow: 0 10px 30px rgba(168,85,247,0.1); }
+        .practice-count {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .practice-card.easy .practice-count { color: var(--green); }
+        .practice-card.medium .practice-count { color: var(--orange); }
+        .practice-card.hard .practice-count { color: var(--red); }
+        .practice-card.expert .practice-count { color: var(--purple); }
+        .practice-level {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .practice-bar {
+            height: 3px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.05);
+            overflow: hidden;
+            margin-top: 0.8rem;
+        }
+        .practice-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        .practice-card.easy .practice-bar-fill { background: var(--green); }
+        .practice-card.medium .practice-bar-fill { background: var(--orange); }
+        .practice-card.hard .practice-bar-fill { background: var(--red); }
+        .practice-card.expert .practice-bar-fill { background: var(--purple); }
+        .practice-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        /* ── BATCH GRID ── */
+        .batch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+        }
+        .batch-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.3rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .batch-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .batch-card .batch-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+            line-height: 1;
+        }
+        .batch-card .batch-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+        .batch-card .batch-version {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+            background: rgba(255,255,255,0.04);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* ── CODESPACE SECTION ── */
+        .codespace-section {
+            background: linear-gradient(135deg, rgba(34,197,94,0.05), rgba(6,182,212,0.05));
+            border-radius: 20px;
+            border: 1px solid rgba(34,197,94,0.15);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .codespace-info { flex: 1; }
+        .codespace-info h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .codespace-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .codespace-features {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .codespace-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .codespace-features li svg { color: var(--green); flex-shrink: 0; }
+        .codespace-visual {
+            width: 300px;
+            flex-shrink: 0;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .codespace-titlebar {
+            background: var(--bg-secondary);
+            padding: 0.5rem 0.8rem;
+            display: flex;
+            gap: 0.4rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .codespace-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+        }
+        .codespace-dot.r { background: #ef4444; }
+        .codespace-dot.y { background: #f59e0b; }
+        .codespace-dot.g { background: #22c55e; }
+        .codespace-code {
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .codespace-code .kw { color: var(--purple); }
+        .codespace-code .fn { color: var(--accent-light); }
+        .codespace-code .str { color: var(--green); }
+        .codespace-code .num { color: var(--orange); }
+        .codespace-code .cm { color: var(--text-muted); }
+
+        /* ── DB SCHEMA PREVIEW ── */
+        .schema-strip {
+            display: flex;
+            gap: 0.6rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+            margin-top: 2rem;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .schema-strip::-webkit-scrollbar { display: none; }
+        .schema-chip {
+            flex-shrink: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .schema-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+        .schema-chip .dot {
+            display: inline-block;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            margin-right: 0.4rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .footer-brand {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .footer-brand .sql { color: var(--accent); }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+        /* the "Get In Touch" footer grid (.unifoot/.uf-inner/.pgrid/.pcard*)
+           comes from the shared /assets/chrome.css, linked in <head> --
+           nothing to duplicate here. Just this page's own full-bleed tint,
+           since the homepage pulls the footer up into the section above. */
+        .unifoot{background:#111827;border-top:1px solid rgba(42,48,64,0.5);margin-top:-2.5rem}
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .practice-grid { grid-template-columns: repeat(2, 1fr); }
+            .curriculum-grid { grid-template-columns: 1fr; }
+            .codespace-section { flex-direction: column; text-align: center; }
+            .codespace-visual { width: 100%; max-width: 400px; }
+            .codespace-features { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 1.25rem; }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-sub { font-size: 1rem; }
+            .hero-stats { gap: 0.6rem; }
+            .stat-card { padding: 0.8rem 1rem; min-width: 100px; }
+            .stat-number { font-size: 1.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .practice-grid { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 3rem 0; }
+            .section-title { font-size: 1.5rem; }
+            .nav-links { gap: 0; }
+            .nav-links a { padding: 0.4rem 0.5rem; font-size: 0.8rem; }
+            .codespace-section { padding: 2rem 1.5rem; }
+            .batch-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero-stats { flex-direction: column; align-items: center; }
+            .stat-card { width: 80%; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .practice-grid { grid-template-columns: 1fr; }
+            .batch-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        /* ── MOBILE NAV (hamburger) ── */
+        @media (max-width: 820px) {
+            nav { padding: 0 1rem; }
+            .nav-toggle { display: inline-flex; }
+            .nav-links {
+                position: absolute;
+                top: 100%; left: 0; right: 0; /* below the bar AND the news strip (nav is the containing block) */
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.15rem;
+                background: rgba(10,14,23,0.98);
+                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border);
+                padding: 0.6rem 1rem 1rem;
+                display: none;
+                max-height: calc(100vh - 100%); /* 100% = nav height, so the menu never runs off-screen */
+                overflow-y: auto;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 0.8rem 0.9rem; font-size: 0.95rem; border-radius: 8px; }
+            .nav-access-btn { text-align: center; margin-top: 0.3rem; }
+        }
+        /* ── CURSOR TRAIL ── */
+        .cursor-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        /* ── ACCESSIBILITY / MOBILE FIXES ── */
+        :focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        @media (max-width: 768px) { .topic-chip { padding: 0.6rem 0.85rem; font-size: 0.85rem; min-height: 40px; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    </style>
 </head>
 <body>
-<nav><a class="brand" href="/">import TheShiraverse</a><span id="site-nav-links"></span></nav>
-<div class="wrap">
-<section class="hero">
-<div class="cmd"><span class="k">import</span> <span class="n">TheShiraverse</span></div>
-<p>Python for data analysts, from zero to pandas. Free, self-paced, with real Indian retail data (RetailMart) and the same teaching style as the SQL course. Run every example in your browser, no install.</p>
-<div class="shell"><span class="p">&gt;&gt;&gt;</span> import pandas as pd<br><span class="p">&gt;&gt;&gt;</span> pd.read_csv("data/sales.orders.csv").shape<br><span class="o">(150000, 9)</span></div>
-<a class="btn" href="/playground/">Open the playground</a><a class="btn s" href="#curriculum">See the curriculum</a><a class="btn s" href="https://sql.theshiraverse.com">Learn SQL first</a>
-</section>
-<h2 id="get-started">Get started <span class="soon">videos coming soon</span></h2>
-<p class="sub">A few short sections, do them once.</p>
-<div class="steps"><a href="/notes/get-started/meet-python/" style="text-decoration:none;color:inherit"><div><b>1</b>Meet Python: what it is and where it came from</div></a><a href="/notes/get-started/how-python-runs/" style="text-decoration:none;color:inherit"><div><b>2</b>How Python runs: interpreter, scripts, notebooks</div></a><a href="/notes/get-started/run-in-your-browser/" style="text-decoration:none;color:inherit"><div><b>3</b>Run Python in your browser</div></a><a href="/notes/get-started/set-up-python/" style="text-decoration:none;color:inherit"><div><b>4</b>Set up Python on your laptop</div></a><a href="/notes/get-started/website-walkthrough/" style="text-decoration:none;color:inherit"><div><b>5</b>Website walkthrough</div></a></div>
-<h2 id="curriculum">Curriculum</h2>
-<p class="sub">Six modules, topic by topic, no calendar. Every topic answers "how did I do this in SQL?".</p>
-<div class="grid"><div class="mod"><span class="n mono">Module 1</span><h3>Python Foundations</h3><p>Variables, strings, lists, dicts, loops, functions, files.</p><span class="t">14 topics</span></div><div class="mod"><span class="n mono">Module 2</span><h3>NumPy &amp; pandas Basics</h3><p>DataFrames, selecting, filtering, missing values, types.</p><span class="t">10 topics</span></div><div class="mod"><span class="n mono">Module 3</span><h3>Analysis with pandas</h3><p>groupby, pivot, merge, windows, cleaning, time series.</p><span class="t">8 topics</span></div><div class="mod"><span class="n mono">Module 4</span><h3>Visualisation &amp; Storytelling</h3><p>matplotlib, seaborn, charts that make a point.</p><span class="t">5 topics</span></div><div class="mod"><span class="n mono">Module 5</span><h3>Analyst Toolkit</h3><p>SQL from Python, cohorts, funnels, A/B tests, automation.</p><span class="t">7 topics</span></div><div class="mod"><span class="n mono">Module 6</span><h3>Interview Prep &amp; Capstone</h3><p>Python and pandas interview patterns, a full RetailMart project.</p><span class="t">4 parts</span></div></div>
-<h2 id="dataset">Dataset</h2>
-<p class="sub">The same RetailMart database as the SQL course: customers, products, stores, orders and order items, now as pandas DataFrames. The playground ships a starter set of 10 tables.</p>
-<p>Prefer 1:1 help on a doubt or a mock interview? <a href="https://theshiraverse.com/book">Book a 1:1</a>.</p>
+<canvas class="cursor-canvas" id="cursorCanvas"></canvas>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.5rem;"><img src="/assets/logo-64.jpg" alt="TheShiraverse" style="width:28px;height:28px;border-radius:6px;"><span><span class="sql">import</span> TheShiraverse</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="nav-links" id="navLinks" onclick="if(event.target.tagName==='A')this.classList.remove('open')">
+            <span id="site-nav-links"></span>
+            <!-- Access-code gate hidden for now (nothing is gated). To bring it back, remove the "hidden" attributes on #accessToggle and #accessOverlay. -->
+            <a href="#" id="accessToggle" class="nav-access-btn" hidden onclick="event.preventDefault(); toggleAccessModal()">Enter Code</a>
+        </div>
+    </div>
+    <div class="news-strip" id="newsStrip"><div class="news-track" id="newsTrack"></div></div>
+</nav>
+<!-- ── HERO ── -->
+<div class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Python &middot; pandas &middot; Self-Paced
+        </div>
+        <h1>Master <span class="gradient">Python</span> with<br>Real-World Data</h1>
+        <p class="hero-sub">From your first print() to pandas, built around RetailMart — an Indian retail database you already know from the SQL course. Every example runs in your browser. No cohort, no calendar — go at your own speed.</p>
+
+        <div class="hero-stats"><a href="#curriculum" class="stat-card"><div class="stat-number" data-count="6">0</div><div class="stat-label">Modules</div></a><a href="#curriculum" class="stat-card"><div class="stat-number" data-count="75">0</div><div class="stat-label">Topics</div></a><a href="#curriculum" class="stat-card"><div class="stat-number" data-count="164">0</div><div class="stat-label">Hours</div></a><a href="/playground/" class="stat-card"><div class="stat-number" data-count="10">0</div><div class="stat-label">Tables</div></a></div>
+
+        <div class="hero-actions">
+            <a href="/playground/" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
+                Try Python Now
+            </a>
+            <a href="#curriculum" class="btn btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                View Curriculum
+            </a>
+            <a href="#setup" class="btn btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Get Started
+            </a>
+        </div>
+        <p class="hero-note">Run Python in your browser right now, no install. Then set up your own machine and learn at your own pace</p>
+    </div>
 </div>
-<div id="site-footer-grid" style="margin-top:56px"></div>
-<script src="/assets/chrome.js" defer></script>
+
+<div class="container">
+
+<div class="container">
+
+    <div class="section reveal" id="features">
+        <div class="section-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Why This Course</div>
+        <h2 class="section-title">Built for Real-World Python Skills</h2>
+        <p class="section-desc">Not toy examples. You learn Python the way a data analyst uses it, on a realistic business dataset.</p>
+        <div class="features-grid">
+<div class="feature-card"><div class="feature-icon fi-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h3>Python From Zero</h3><p>No coding background needed. Start at print() and build up: variables, strings, lists, dicts, loops, functions, files, OOP.</p></div>
+<div class="feature-card"><div class="feature-icon fi-purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Real Retail Data</h3><p>From Module 2 you work on RetailMart as pandas DataFrames — customers, orders, products, stores. Same data as the SQL course.</p></div>
+<div class="feature-card"><div class="feature-icon fi-green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg></div><h3>Run It In Your Browser</h3><p>Every example is a live cell. Edit, run, break it, fix it. Nothing to install to get started.</p></div>
+<div class="feature-card"><div class="feature-icon fi-cyan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div><h3>Practice On Every Topic</h3><p>Short exercises inside each page, checked as you type, so you know straight away if you got it.</p></div>
+<div class="feature-card"><div class="feature-icon fi-orange"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div><h3>SQL To Python Bridge</h3><p>Every topic answers: how did I do this in SQL? Join, group by and window functions become pandas you can read.</p></div>
+<div class="feature-card"><div class="feature-icon fi-pink"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div><h3>Interview Ready</h3><p>SQL vs pandas questions, coding rounds and a capstone project, the kind data analyst interviews ask.</p></div>
+        </div>
+    </div>
+
+    <div class="section reveal" id="curriculum">
+        <div class="section-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg> Curriculum</div>
+        <h2 class="section-title">75 Topics, Interview Prep &amp; Projects, Self-Paced</h2>
+        <p class="section-desc">From your first print() to pandas and a capstone. No calendar — work through each module at your own speed. Tap a topic to see what it covers.</p>
+        <div class="curriculum-grid">
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 1</span></div><div class="week-title">Python Foundations</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="print() with several arguments, sep and end, text in quotes, comments (#), statements and line continuation, indentation defines blocks, syntax errors">Hello Python</button></li>
+<li><button class="topic-chip" data-glimpse="Assignment, naming rules and snake_case, multiple assignment, int, float, str, bool, None, type(), casting with int()/float()/str()/bool()">Variables &amp; data types</button></li>
+<li><button class="topic-chip" data-glimpse="+ - * / // % **, operator precedence and brackets, augmented assignment (+=), abs, round, divmod, min, max, math module, float vs Decimal vs Fraction">Numbers &amp; operators</button></li>
+<li><button class="topic-chip" data-glimpse="Quotes, escapes and raw strings, triple-quoted text, concatenation and repetition, len, indexing and negative indexing, slicing [start:stop:step]">Strings 1: text basics</button></li>
+<li><button class="topic-chip" data-glimpse="upper/lower/title, strip, split/join, replace, find/index/count, startswith/endswith">Strings 2: methods &amp; formatting</button></li>
+<li><button class="topic-chip" data-glimpse="True/False, comparison operators and chaining, and/or/not and precedence, short-circuit, is vs ==, in / not in">Booleans, comparison &amp; logic</button></li>
+<li><button class="topic-chip" data-glimpse="input() always returns str, converting and validating, formatted output and alignment, printing small tables, end/sep, stdout vs stderr">Input &amp; output</button></li>
+<li><button class="topic-chip" data-glimpse="if/elif/else, nested conditions, conditional expression (ternary), match/case (literals, or-patterns, guards), pass as placeholder, indentation">Conditions</button></li>
+<li><button class="topic-chip" data-glimpse="Create, index and negative index, slicing, append/extend/insert, remove/pop/del, len/min/max/sum">Lists 1</button></li>
+<li><button class="topic-chip" data-glimpse="Aliasing vs copying, shallow vs deep copy, nested lists and grids, stacks and queues (append/pop, deque), del and slice assignment, unpacking and *rest">Lists 2: references &amp; copies</button></li>
+<li><button class="topic-chip" data-glimpse="Tuple literals and immutability, packing/unpacking, returning several values, namedtuple (brief), sets: uniqueness, union, intersection, difference, symmetric difference, frozenset">Tuples &amp; sets</button></li>
+<li><button class="topic-chip" data-glimpse="Key/value pairs, get(), setdefault(), keys/values/items, add/update/pop/del, nested dicts, iterating">Dictionaries</button></li>
+<li><button class="topic-chip" data-glimpse="for over lists, strings, dicts, range(start, stop, step), enumerate, zip, reversed and sorted, accumulator patterns (sum, count, max)">Loops 1: for</button></li>
+<li><button class="topic-chip" data-glimpse="while and sentinels, infinite loops, break, continue, loop else, pass">Loops 2: while &amp; control</button></li>
+<li><button class="topic-chip" data-glimpse="List, set and dict comprehensions, conditions, nested comprehensions, vs map/filter, generator expressions, when not to use them">Comprehensions</button></li>
+<li><button class="topic-chip" data-glimpse="def and calling, parameters vs arguments, return vs print, multiple return values, None, local vs global scope">Functions 1</button></li>
+<li><button class="topic-chip" data-glimpse="Default and keyword arguments, the mutable-default trap, positional-only and keyword-only, *args and **kwargs, unpacking with * and **, type hints and annotations">Functions 2: arguments</button></li>
+<li><button class="topic-chip" data-glimpse="lambda, key= with lambda, map, filter, sorted, min, max, any, all, sum, recursion (base case, factorial, Fibonacci), closures, decorators (a timing decorator)">Functions 3: functional tools</button></li>
+<li><button class="topic-chip" data-glimpse="Iterable vs iterator, iter/next, StopIteration, yield and generator functions, generator expressions, memory benefits">Iterators &amp; generators</button></li>
+<li><button class="topic-chip" data-glimpse="import styles, writing a module, packages, __name__ == &#x27;__main__&#x27;, module search path, dir()">Modules, packages &amp; the standard library</button></li>
+<li><button class="topic-chip" data-glimpse="date, time, datetime, timedelta, strftime/strptime and format codes, ISO format, comparing and subtracting, weekday, month ends, time zones with zoneinfo (IST)">Dates &amp; times</button></li>
+<li><button class="topic-chip" data-glimpse="re.search/match/findall/sub/split, character classes, quantifiers, anchors, groups and named groups, greedy vs lazy">Text patterns: regex</button></li>
+<li><button class="topic-chip" data-glimpse="open modes (r, w, a), with, read/readline/readlines, looping over lines, write and append, encoding (utf-8)">Files</button></li>
+<li><button class="topic-chip" data-glimpse="csv.reader/DictReader/writer, delimiters, quoting, headers, everything is str, json.load/dump/loads/dumps, nested JSON, flattening">CSV &amp; JSON</button></li>
+<li><button class="topic-chip" data-glimpse="Syntax errors vs exceptions, reading a traceback, common exceptions (NameError, TypeError, ValueError, KeyError, IndexError, ZeroDivisionError, FileNotFoundError), try/except/else/finally, raise, custom exceptions">Errors &amp; debugging</button></li>
+<li><button class="topic-chip" data-glimpse="class and object, __init__ and self, attributes and methods, instance vs class variables, __str__ and __repr__, objects are references">Classes &amp; objects (OOP 1)</button></li>
+<li><button class="topic-chip" data-glimpse="Inheritance and super(), overriding, polymorphism and duck typing, encapsulation (_ and __), @property, @classmethod">Inheritance &amp; friends (OOP 2)</button></li>
+<li><button class="topic-chip" data-glimpse="dataclass (defaults, frozen, order), PEP 8 in practice, naming, short functions, docstrings, type hints">Dataclasses, clean code &amp; tests</button></li>
+<li><button class="topic-chip" data-glimpse="Repo, init/clone, add/commit, status/log/diff, branches and merge, push/pull, .gitignore">Git &amp; GitHub basics</button></li>
+<li><button class="topic-chip" data-glimpse="Read a CSV of marks, total, average and grade by thresholds, write results to a new CSV, handle bad rows">Mini-project: Student grade calculator</button></li>
+<li><button class="topic-chip" data-glimpse="Add expenses (date, category, amount), store in CSV/JSON, totals by category and date range, menu loop, validation">Mini-project: Expense tracker CLI</button></li>
+<li><button class="topic-chip" data-glimpse="Load a CSV, show first rows, compute mean, median, mode, std by hand, text histogram or matplotlib bar chart">Mini-project: Basic data analysis tool</button></li>
+</ul><div class="topic-glimpse"></div></div>
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 2</span></div><div class="week-title">NumPy &amp; pandas Basics</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="Why NumPy (speed), ndarray, dtype, shape, ndim, size, array, zeros, ones, arange, linspace, reshape">NumPy arrays</button></li>
+<li><button class="topic-chip" data-glimpse="1D/2D indexing and slicing, views vs copies, boolean masks, fancy indexing, np.where, sort and argsort">Indexing, slicing &amp; boolean masks</button></li>
+<li><button class="topic-chip" data-glimpse="Vectorised operations, broadcasting rules, sum/mean/median/std/var/min/max/percentile, axis, cumsum, NaN-aware functions">Maths, broadcasting &amp; statistics</button></li>
+<li><button class="topic-chip" data-glimpse="default_rng and seeds, integers, random, choice, normal, shuffle and sample, simple simulations (coin, dice), bootstrap idea">Random numbers &amp; reproducibility</button></li>
+<li><button class="topic-chip" data-glimpse="Create from list/dict/array, index and labels vs positions, vectorised operations, alignment, name and dtype, head, sum, value_counts">Series</button></li>
+<li><button class="topic-chip" data-glimpse="Create from dict, list of dicts, NumPy, columns, index, shape, info, describe, head, tail, dtypes, select one vs several columns, rename, drop">DataFrame</button></li>
+<li><button class="topic-chip" data-glimpse="read_csv (sep, usecols, dtype, parse_dates, nrows, na_values), read_excel (sheets), read_json, read_sql, parquet, to_csv/to_excel with index=False">Reading &amp; writing data</button></li>
+<li><button class="topic-chip" data-glimpse="[] vs .loc vs .iloc, label vs position slices (loc end is inclusive), several columns, boolean rows, .at/.iat, selecting with an index">Selecting: [], loc, iloc</button></li>
+<li><button class="topic-chip" data-glimpse="Boolean conditions, &amp; | ~ with brackets, isin, between, str.contains, query()">Filtering</button></li>
+<li><button class="topic-chip" data-glimpse="sort_values (several keys), sort_index, nlargest/nsmallest, head/tail, unique/nunique, value_counts (normalize)">Sorting, head, unique</button></li>
+<li><button class="topic-chip" data-glimpse="Assigning columns, assign(), vectorised arithmetic, apply (row/column), map and replace, np.where and np.select">New columns</button></li>
+<li><button class="topic-chip" data-glimpse="isna/notna, counting, dropna (how, subset), fillna (value, ffill, bfill), interpolate, replacing placeholders">Missing values</button></li>
+<li><button class="topic-chip" data-glimpse="dtypes, astype, to_numeric(errors=&#x27;coerce&#x27;), to_datetime, category, nullable dtypes (Int64)">Data types &amp; casting</button></li>
+<li><button class="topic-chip" data-glimpse=".str (lower, strip, split, contains, replace, extract, len), .dt (year, month, dayofweek, strftime, normalize), Timedelta, Period, mixed date formats">String &amp; date accessors</button></li>
+</ul><div class="topic-glimpse"></div></div>
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 3</span></div><div class="week-title">Analysis with pandas</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="groupby, agg (sum, mean, count, nunique), several aggregations, named aggregation, several keys, as_index">groupby &amp; aggregation</button></li>
+<li><button class="topic-chip" data-glimpse="pivot_table (values, index, columns, aggfunc, fill_value, margins), crosstab, normalize">Pivot tables &amp; crosstab</button></li>
+<li><button class="topic-chip" data-glimpse="melt, pivot, stack/unstack, wide vs long, flattening MultiIndex columns, explode">Reshaping: melt, stack, unstack</button></li>
+<li><button class="topic-chip" data-glimpse="inner/left/right/outer, on, left_on/right_on, suffixes, validate, indicator, many-to-many explosion">merge: all the JOINs</button></li>
+<li><button class="topic-chip" data-glimpse="concat (axis, ignore_index, keys), anti-join with indicator or ~isin, semi-join, set operations via concat/drop_duplicates/merge">concat &amp; anti-joins</button></li>
+<li><button class="topic-chip" data-glimpse="rank (methods), cumsum/cumprod, shift/diff/pct_change, rolling and expanding, ewm intro, groupby + transform">Window-style: rank, cumsum, rolling</button></li>
+<li><button class="topic-chip" data-glimpse="duplicated/drop_duplicates (subset, keep), standardising text, fixing types, trimming, replace, validation checks and assert">Duplicates &amp; cleaning</button></li>
+<li><button class="topic-chip" data-glimpse="IQR and z-score, clip/winsorise, cut and qcut, custom bins and labels, value_counts on bins">Outliers &amp; binning</button></li>
+<li><button class="topic-chip" data-glimpse="DatetimeIndex, resample (D, W, M, Q), rolling on time, shift by frequency, date_range, asfreq">Time series with pandas</button></li>
+<li><button class="topic-chip" data-glimpse="groupby + transform(&#x27;sum&#x27;), pivot margins, ROLLUP-style subtotals, cumulative %, the 80/20 rule, share of total">Subtotals &amp; percent of total</button></li>
+<li><button class="topic-chip" data-glimpse="describe, quantile, mean/median/mode/std, skew intro, corr/cov, correlation vs causation">describe, quantiles &amp; correlation</button></li>
+<li><button class="topic-chip" data-glimpse="timeit, vectorise vs apply vs loops, memory usage, downcasting, category, chunked read_csv">Performance</button></li>
+</ul><div class="topic-glimpse"></div></div>
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 4</span></div><div class="week-title">Visualisation &amp; Storytelling</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="Figure and Axes, pyplot vs object-oriented, line, bar, barh, hist, scatter, pie (and why to avoid it), show, notebooks">matplotlib basics</button></li>
+<li><button class="topic-chip" data-glimpse="Titles, labels, ticks, legends, colours and styles, subplots and gridspec, figsize, annotations, saving (png, svg, pdf, dpi)">Customising charts</button></li>
+<li><button class="topic-chip" data-glimpse="Comparison, trend, distribution, relationship, composition, misleading charts, small multiples, colour accessibility">Choosing the right chart</button></li>
+<li><button class="topic-chip" data-glimpse="Themes, histplot/kdeplot, boxplot/violinplot, scatterplot/regplot, barplot with intervals, heatmap (correlations)">seaborn</button></li>
+<li><button class="topic-chip" data-glimpse="plotly express line/bar/scatter/histogram, hover, facets, export HTML, when to use interactive charts">plotly: interactive charts</button></li>
+<li><button class="topic-chip" data-glimpse="KPI table, multi-panel figure, small multiples, sparklines, conditional formatting with Styler, summary tables">Dashboard-style summaries</button></li>
+<li><button class="topic-chip" data-glimpse="to_excel with xlsxwriter/openpyxl, formatting, several sheets, charts in Excel, narrative structure (setup, insight, action), a one-slide summary">Reporting to Excel &amp; storytelling</button></li>
+</ul><div class="topic-glimpse"></div></div>
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 5</span></div><div class="week-title">Analyst Toolkit</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="Scaling (standard, min-max), encoding (one-hot, ordinal), train/test split, data leakage, outliers, class imbalance (mention)">Data preprocessing</button></li>
+<li><button class="topic-chip" data-glimpse="sqlite3 basics, parameterised queries and SQL injection, pandas read_sql and to_sql, SQLAlchemy engine, connecting to PostgreSQL, when to use SQL vs pandas">SQL from Python</button></li>
+<li><button class="topic-chip" data-glimpse="Cohort month, retention table, RFM scoring with qcut, segments, interpreting and acting">Cohort &amp; RFM</button></li>
+<li><button class="topic-chip" data-glimpse="Stages, conversion and drop-off, per-channel funnels, time to convert">Funnels</button></li>
+<li><button class="topic-chip" data-glimpse="Hypotheses, p-value, t-test, chi-square, sample size basics, peeking and multiple tests">A/B testing basics</button></li>
+<li><button class="topic-chip" data-glimpse="Script structure, functions, main guard, argparse, configuration, logging">Automating a report</button></li>
+<li><button class="topic-chip" data-glimpse="HTTP basics, GET and params, JSON, status codes, keys and secrets safety, rate limits">APIs with requests</button></li>
+<li><button class="topic-chip" data-glimpse="robots.txt, ethics and terms, requests + BeautifulSoup, selectors, pd.read_html, polite scraping">Web scraping basics</button></li>
+<li><button class="topic-chip" data-glimpse="Notebook hygiene, restart and run all, folders (data, src, notebooks, outputs), requirements.txt, README, reproducibility">Jupyter best practices &amp; project structure</button></li>
+</ul><div class="topic-glimpse"></div></div>
+<div class="week-card"><div class="week-header"><span class="week-num">MODULE 6</span></div><div class="week-title">Interview Prep &amp; Capstone</div><ul class="week-topics">
+<li><button class="topic-chip" data-glimpse="Reverse, palindrome, anagram, two-sum, frequency, de-duplicate, flatten, FizzBuzz, two pointers, sliding window intro, Big-O of list/dict/set operations, == vs is, shallow vs deep copy">Core Python interview patterns</button></li>
+<li><button class="topic-chip" data-glimpse="Top-N per group, running totals, retention, de-duplicate, pivot, merge pitfalls">pandas interview patterns</button></li>
+<li><button class="topic-chip" data-glimpse="30 tasks solved both ways, performance trade-offs, when to use which">SQL vs pandas side by side</button></li>
+<li><button class="topic-chip" data-glimpse="Linear and binary search, bubble, selection, insertion, merge and quick sort (concepts), Big-O, recursion vs iteration, stacks, queues and hash tables in use">Algorithms basics</button></li>
+<li><button class="topic-chip" data-glimpse="Frame the question, load and clean, analyse, visualise, recommend, present">Capstone: RetailMart analysis end to end</button></li>
+</ul><div class="topic-glimpse"></div></div>
+        </div>
+    </div>
+
+    <div class="section reveal" id="setup">
+        <div class="section-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Get Started <span class="badge badge-free" style="margin-left:0.5rem">Free</span></div>
+        <h2 class="section-title">Get Started</h2>
+        <p class="section-desc">Five short pages to do once, in order. Then you're ready for Module 1. Videos coming soon.</p>
+        <div class="cards-grid">
+<a class="card" href="/notes/get-started/meet-python/"><div class="card-icon" style="background:rgba(59,130,246,0.1)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="card-body"><h3>Meet Python</h3><p>What Python is, where it came from and why analysts use it</p></div></a>
+<a class="card" href="/notes/get-started/how-python-runs/"><div class="card-icon" style="background:rgba(59,130,246,0.1)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div class="card-body"><h3>How Python runs</h3><p>Interpreter, scripts, notebooks and your first error</p></div></a>
+<a class="card" href="/notes/get-started/run-in-your-browser/"><div class="card-icon" style="background:rgba(59,130,246,0.1)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg></div><div class="card-body"><h3>Run Python in your browser</h3><p>Use the cells and the playground, no install</p></div></a>
+<a class="card" href="/notes/get-started/set-up-python/"><div class="card-icon" style="background:rgba(59,130,246,0.1)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><div class="card-body"><h3>Set up Python on your laptop</h3><p>Windows and Mac, VS Code, venv, pip, Jupyter</p></div></a>
+<a class="card" href="/notes/get-started/website-walkthrough/"><div class="card-icon" style="background:rgba(59,130,246,0.1)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg></div><div class="card-body"><h3>Website walkthrough</h3><p>Where notes, practice, playground and help live</p></div></a>
+        </div>
+    </div>
+
+    <!-- ── 1:1 SESSIONS (same booking links as theshiraverse.com/#book) ── -->
+    <div class="section reveal" id="book" style="scroll-margin-top:80px">
+        <div class="section-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            1:1 Sessions
+        </div>
+        <h2 class="section-title">Book a Session With Me</h2>
+        <p class="section-desc">Any doubt in Python, data science, AI, ML, SQL, Excel or Power BI. An interview coming up. Not sure what to learn next. Pick a slot and we sort it out together, one to one.</p>
+
+        <div class="cards-grid">
+            <a class="card" href="https://topmate.io/shiraj_ahmad/2349804" target="_blank" rel="noopener">
+                <div class="card-icon" style="background:rgba(34,197,94,0.1)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </div>
+                <div class="card-body">
+                    <h3>Discovery Call <span class="badge badge-free" style="margin-left:0.4rem;white-space:nowrap;display:inline-block">Free &middot; 15 min</span></h3>
+                    <p>Bring any doubt in data science, AI or ML, or a career question. We look at where you are and agree on your next step.</p>
+                    <span class="card-meta">Pick a free slot &rarr;</span>
+                </div>
+            </a>
+            <a class="card" href="https://topmate.io/shiraj_ahmad" target="_blank" rel="noopener">
+                <div class="card-icon" style="background:rgba(59,130,246,0.1)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="card-body">
+                    <h3>Deep-Dive Session <span class="badge" style="margin-left:0.4rem;white-space:nowrap;display:inline-block;background:rgba(59,130,246,0.15);color:var(--accent-light)">Paid</span></h3>
+                    <p>Quick chat, 1:1 mentorship, career guidance, resume review, interview prep or a full mock interview. Pick a time and see the price on Topmate. Honest feedback, every time.</p>
+                    <span class="card-meta">See all sessions &rarr;</span>
+                </div>
+            </a>
+        </div>
+        <p class="hero-note" style="margin-top:1.2rem">Sessions are online video calls, booked on Topmate. Once you book, you get a confirmation with the joining link.</p>
+    </div>
+
+    <!-- ── CONTACT / COMMUNITY ── -->
+
+</div>
+
+
+<!-- ── FOOTER (doubles as the old "Get In Touch" section) ── -->
+<footer class="unifoot" id="contact">
+  <div class="uf-inner">
+    <div id="site-footer-grid"></div>
+  </div>
+</footer>
+<div class="footer-copy" style="text-align:center;padding:0.3rem 0 1.2rem;color:var(--text-muted);font-size:.8rem">Built by Shiraj Ahmad &middot; Python &middot; pandas &middot; RetailMart</div>
+<script>
+    // ── ACCESS CODE SYSTEM (server-side) ──
+    // The code itself is never in this page's source — checkAccess() posts
+    // to a Cloudflare Pages Function (/functions/api/verify-code.js) which
+    // compares it against a server-side secret and sets an HttpOnly cookie.
+    // A separate Function (/functions/protected/_middleware.js) checks that
+    // cookie before serving anything under /protected/ — so unlike the old
+    // client-side hash check, there is nothing here for a scraper to read.
+
+    function toggleAccessModal() {
+        const overlay = document.getElementById('accessOverlay');
+        overlay.classList.toggle('show');
+        if (overlay.classList.contains('show')) {
+            setTimeout(() => document.getElementById('accessCode').focus(), 100);
+        }
+    }
+
+    async function checkAccess() {
+        const code = document.getElementById('accessCode').value.trim();
+        if (!code) return;
+        const status = document.getElementById('accessStatus');
+        status.textContent = 'Checking…';
+        status.className = 'access-status';
+        try {
+            const res = await fetch('/api/verify-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code })
+            });
+            if (res.ok) {
+                status.textContent = 'Unlocked!';
+                status.className = 'access-status granted';
+                document.querySelectorAll('[data-gate]').forEach(el => el.classList.remove('locked'));
+                const toggle = document.getElementById('accessToggle');
+                toggle.textContent = 'Unlocked';
+                toggle.classList.add('granted');
+                setTimeout(() => toggleAccessModal(), 1200);
+            } else {
+                status.textContent = 'Invalid access code';
+                status.className = 'access-status error';
+                document.getElementById('accessCode').select();
+            }
+        } catch (e) {
+            status.textContent = 'Something went wrong — try again';
+            status.className = 'access-status error';
+        }
+    }
+
+    // Gated links still redirect to the modal for UX, but the real
+    // enforcement is server-side on the /protected/ route itself — removing
+    // the "locked" class here is a convenience, not the security boundary.
+    document.addEventListener('click', function(e) {
+        const card = e.target.closest('[data-gate]');
+        if (card && card.classList.contains('locked')) {
+            e.preventDefault();
+            toggleAccessModal();
+        }
+    });
+
+    // ── ANIMATED COUNTERS ──
+    function animateCounters() {
+        document.querySelectorAll('[data-count]').forEach(el => {
+            if (el.dataset.animated) return;
+            const rect = el.getBoundingClientRect();
+            if (rect.top > window.innerHeight || rect.bottom < 0) return;
+            el.dataset.animated = '1';
+            const target = parseInt(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            const display = el.dataset.display;
+            const duration = 1500;
+            const start = performance.now();
+            function tick(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                if (display) {
+                    // For large numbers, animate then show display text
+                    const v = Math.floor(target * eased);
+                    el.textContent = progress < 1 ? (v > 1000000 ? (v/1000000).toFixed(1)+'M' : v > 1000 ? Math.floor(v/1000)+'K' : v.toString()) : display;
+                } else {
+                    el.textContent = Math.floor(target * eased).toLocaleString() + suffix;
+                }
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = display || (target.toLocaleString() + suffix);
+            }
+            requestAnimationFrame(tick);
+        });
+    }
+
+    // ── PRACTICE BARS ──
+    function animateBars() {
+        document.querySelectorAll('.practice-bar-fill').forEach(el => {
+            if (el.dataset.animated) return;
+            const rect = el.getBoundingClientRect();
+            if (rect.top > window.innerHeight) return;
+            el.dataset.animated = '1';
+            setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 200);
+        });
+    }
+
+    // ── SCROLL REVEAL ──
+    function revealOnScroll() {
+        document.querySelectorAll('.reveal').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 80) {
+                el.classList.add('visible');
+            }
+        });
+        animateCounters();
+        animateBars();
+    }
+
+    // ── NAV SCROLL ──
+    function handleNavScroll() {
+        document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+    }
+
+    // ── NEWS TICKER ── Live classes alternates with a rotating feature; add
+    // more {href,text} pairs to widen the rotation, Live stays every other slot.
+    var NEWS = [
+        { href: '/notes/get-started/meet-python/', text: '<b>Get started</b> — five short pages: what Python is, how it runs, set up', c: 'var(--green)' },
+        { href: '/playground/', text: '<b>Python Playground</b> — real Python and pandas in your browser, nothing to install', c: 'var(--accent)' },
+        { href: '/notes/', text: '<b>Nukte</b> — full written notes for every topic, in plain language', c: 'var(--purple)' },
+        { href: 'https://sql.theshiraverse.com', text: '<b>New to data?</b> — learn SQL first on the SQL course', c: 'var(--orange)' }
+    ];
+    (function renderNews(){
+        var track = document.getElementById('newsTrack');
+        if (!track) return;
+        var pills = NEWS.map(function(n){
+            return '<a class="news-pill" href="' + n.href + '"><span class="dot" style="background:' + n.c + '"></span>' + n.text + '</a>';
+        }).join('');
+        track.innerHTML = pills + pills; // doubled: the CSS animation scrolls exactly one copy's width, so the loop is seamless
+    })();
+
+    // ── SCHEMA STRIP AUTO-SCROLL ──
+    function autoScrollSchemas() {
+        const strip = document.getElementById('schemaStrip');
+        if (!strip) return;
+        let scrollPos = 0;
+        let speed = 0.5;
+        function scroll() {
+            scrollPos += speed;
+            if (scrollPos >= strip.scrollWidth - strip.clientWidth) scrollPos = 0;
+            strip.scrollLeft = scrollPos;
+            requestAnimationFrame(scroll);
+        }
+        scroll();
+        strip.addEventListener('mouseenter', () => { speed = 0; });
+        strip.addEventListener('mouseleave', () => { speed = 0.5; });
+    }
+
+    // ── INIT ──
+    window.addEventListener('scroll', () => { revealOnScroll(); handleNavScroll(); }, { passive: true });
+    window.addEventListener('load', () => {
+        revealOnScroll();
+        handleNavScroll();
+        // Delay counters slightly so layout is stable
+        setTimeout(() => { animateCounters(); animateBars(); }, 100);
+        autoScrollSchemas();
+    });
+
+    // ESC to close modal
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            const overlay = document.getElementById('accessOverlay');
+            if (overlay.classList.contains('show')) toggleAccessModal();
+        }
+    });
+
+    // ── CURSOR TRAIL ──
+    (function() {
+        const canvas = document.getElementById('cursorCanvas');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(pointer: coarse)').matches) { canvas.style.display = 'none'; return; }
+        const ctx = canvas.getContext('2d');
+        let w, h;
+        const particles = [];
+        const colors = ['#3b82f6', '#a855f7', '#06b6d4', '#60a5fa', '#818cf8'];
+        let mouse = { x: -100, y: -100 };
+        let lastMouse = { x: -100, y: -100 };
+        let frame = 0;
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        document.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.life = 1;
+                this.decay = 0.015 + Math.random() * 0.02;
+                this.size = 2 + Math.random() * 3;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life -= this.decay;
+                this.size *= 0.97;
+            }
+            draw() {
+                ctx.globalAlpha = this.life * 0.6;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            frame++;
+
+            // Spawn particles on mouse move
+            const dx = mouse.x - lastMouse.x;
+            const dy = mouse.y - lastMouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist > 2) {
+                const count = Math.min(Math.floor(dist / 4), 5);
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle(
+                        mouse.x + (Math.random() - 0.5) * 8,
+                        mouse.y + (Math.random() - 0.5) * 8
+                    ));
+                }
+            }
+
+            lastMouse.x = mouse.x;
+            lastMouse.y = mouse.y;
+
+            // Update & draw
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                if (particles[i].life <= 0 || particles[i].size < 0.3) {
+                    particles.splice(i, 1);
+                } else {
+                    particles[i].draw();
+                }
+            }
+
+            // Cap particles
+            if (particles.length > 200) particles.splice(0, particles.length - 200);
+
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Disable on mobile / touch
+        if ('ontouchstart' in window) canvas.style.display = 'none';
+    })();
+
+    // ── TOPIC GLIMPSE ──
+    document.querySelectorAll('.topic-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const card = chip.closest('.week-card');
+            const glimpse = card.querySelector('.topic-glimpse');
+            const alreadyActive = chip.classList.contains('active');
+            card.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+            if (alreadyActive) {
+                glimpse.classList.remove('show');
+            } else {
+                chip.classList.add('active');
+                glimpse.textContent = chip.dataset.glimpse;
+                glimpse.classList.add('show');
+            }
+        });
+    });
+
+    // Pre-select the first topic in every module so a glimpse shows by default
+    document.querySelectorAll('.week-card').forEach(card => {
+        const firstChip = card.querySelector('.topic-chip');
+        if (firstChip) firstChip.click();
+    });
+</script>
+
+<script src="/assets/chrome.js?v=20261114" defer></script>
 </body>
 </html>
