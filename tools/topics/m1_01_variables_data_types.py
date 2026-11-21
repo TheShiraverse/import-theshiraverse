@@ -2,7 +2,7 @@ from deck_lib import *
 
 META = dict(
     module=1, num=2, slug="variables-data-types", title="Variables & Data Types",
-    desc="Python Module 1, topic 1: variables, int, float, str, bool and None, converting between types, and the three errors every beginner meets. Run every example in your browser.",
+    desc="Python Module 1, topic 2: variables, int, float, str, bool and None, converting between types, and the three errors every beginner meets. Run every example in your browser.",
     next=("Numbers & Operators", "numbers-operators"),
     pyrun='{base:"/playground/",data:false,packages:[]}',
 )

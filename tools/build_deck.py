@@ -5,7 +5,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE / "topics"))
 import deck_lib
 SITE = HERE.parent
-ASSET_V = "5"   # bump when assets/pyrun.js, pyworker.js, deck.js or deck.css change (cache busting)
+ASSET_V = "6"   # bump when assets/pyrun.js, pyworker.js, deck.js or deck.css change (cache busting)
 
 def main(stem):
     t = importlib.import_module(stem)

@@ -18,6 +18,7 @@ def _vars():
         if len(r) > 60: r = r[:57] + '...'
         out.append([k, type(v).__name__, r])
     return out
+import sys
 def _run(code, fresh=False):
     res = {}
     if fresh: _reset()
@@ -40,6 +41,9 @@ def _run(code, fresh=False):
     except BaseException as e:
         tb = e.__traceback__.tb_next
         res["error"] = "".join(traceback.format_exception(type(e), e, tb)).rstrip()
+    try:
+        sys.stdout.flush(); sys.stderr.flush()
+    except Exception: pass
     res["vars"] = _vars()
     return res
 def _reset():

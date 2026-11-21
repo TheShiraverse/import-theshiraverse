@@ -102,7 +102,7 @@ Total: 75 numbered topics, 5 Get started sections, 3 mini-projects, 1 capstone. 
 **Outcome:** Write, read and debug everyday Python: values, text, collections, control flow, functions, files, errors and small classes.
 **Time:** about 60 h
 
-### Topic 1. Hello Python
+### Topic 1. Hello Python (BUILT)
 **Goal:** Write and run first programs and read simple code.
 **Covers:**
 - print() with several arguments, sep and end
