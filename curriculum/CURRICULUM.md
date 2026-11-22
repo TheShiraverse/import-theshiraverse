@@ -149,7 +149,7 @@ Total: 75 numbered topics, 5 Get started sections, 3 mini-projects, 1 capstone. 
 **Common mistakes:** ZeroDivisionError; round(2.5) is 2; -7 // 2 is -4; ^ is XOR not power; Decimal + float TypeError
 **Practice:** GST invoice; splitting an amount; change-making
 
-### Topic 4. Strings 1: text basics
+### Topic 4. Strings 1: text basics (BUILT)
 **Goal:** Slice and inspect text confidently.
 **Covers:**
 - Quotes, escapes and raw strings

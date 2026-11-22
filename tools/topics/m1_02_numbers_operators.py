@@ -167,5 +167,5 @@ def build():
     S.append(scene("Next: Strings 1: Text Basics", head("Next topic", "Strings 1: Text Basics",
         "Slice, index and inspect text: card numbers, names, file extensions. Everything RetailMart stores as a word.") +
         '<div class="mission"><b>Before the next topic:</b> finish the take-home and try it in the playground: <a href="/playground/">python.theshiraverse.com/playground</a></div>'
-        '<div style="margin-top:20px"><span class="chip"><b>Next:</b> Strings 1: Text Basics (coming soon)</span></div>'))
+        '<div style="margin-top:20px"><a class="btn-next" href="/notes/module-1/strings-text-basics/">Next: Strings 1: Text Basics &rarr;</a></div>'))
     return S

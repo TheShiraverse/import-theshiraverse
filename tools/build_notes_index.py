@@ -7,7 +7,7 @@ import curriculum_data as c
 SITE = HERE.parent
 # deck locations that exist on disk (slug paths registered here)
 LIVE = {"G1": "/notes/get-started/meet-python/", "G2": "/notes/get-started/how-python-runs/", "G3": "/notes/get-started/run-in-your-browser/",
-        "G4": "/notes/get-started/set-up-python/", "G5": "/notes/get-started/website-walkthrough/", "1": "/notes/module-1/hello-python/", "2": "/notes/module-1/variables-data-types/", "3": "/notes/module-1/numbers-operators/"}
+        "G4": "/notes/get-started/set-up-python/", "G5": "/notes/get-started/website-walkthrough/", "1": "/notes/module-1/hello-python/", "2": "/notes/module-1/variables-data-types/", "3": "/notes/module-1/numbers-operators/", "4": "/notes/module-1/strings-text-basics/"}
 for k, v in LIVE.items():
     assert (SITE / v.strip("/") / "index.html").exists(), f"missing deck for {k}: {v}"
 
