@@ -263,7 +263,7 @@
      "format invoice lines",
      "parse 'name,city'"
     ],
-    "status": "planned"
+    "status": "BUILT"
    },
    {
     "n": "6",

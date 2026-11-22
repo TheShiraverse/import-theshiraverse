@@ -160,5 +160,5 @@ def build():
     S.append(scene("Next: Strings 2: Methods & Formatting", head("Next topic", "Strings 2: Methods &amp; Formatting",
         "Clean messy text and format it for printing: <code>upper</code>, <code>strip</code>, <code>split</code>, <code>replace</code> and f-strings.") +
         '<div class="mission"><b>Before the next topic:</b> finish the take-home and try it in the playground: <a href="/playground/">python.theshiraverse.com/playground</a></div>'
-        '<div style="margin-top:20px"><span class="chip"><b>Next:</b> Strings 2: Methods &amp; Formatting (coming soon)</span></div>'))
+        '<div style="margin-top:20px"><a class="btn-next" href="/notes/module-1/strings-methods-formatting/">Next: Strings 2: Methods &amp; Formatting &rarr;</a></div>'))
     return S

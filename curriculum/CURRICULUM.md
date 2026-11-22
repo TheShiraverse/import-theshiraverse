@@ -164,7 +164,7 @@ Total: 75 numbered topics, 5 Get started sections, 3 mini-projects, 1 capstone. 
 **Common mistakes:** IndexError; TypeError on item assignment; off-by-one slices; backslashes in Windows paths
 **Practice:** Mask a card number; extract an area code; reverse with a slice
 
-### Topic 5. Strings 2: methods & formatting
+### Topic 5. Strings 2: methods & formatting (BUILT)
 **Goal:** Clean and format text.
 **Covers:**
 - upper/lower/title
