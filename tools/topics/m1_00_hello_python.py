@@ -159,6 +159,5 @@ def build():
     S.append(scene("Next: Variables & Data Types", head("Next topic", "Variables & Data Types",
         "Give values a name, know their types, and convert between them safely. Your receipt will finally calculate its own total.") +
         '<div class="mission"><b>Before the next topic:</b> finish the take-home and try your receipt in the playground: <a href="/playground/">python.theshiraverse.com/playground</a></div>'
-        '<div style="margin-top:20px"><a class="btn-next" href="/notes/module-1/variables-data-types/">Next: Variables &amp; Data Types &rarr;</a></div>'
-        '<div id="site-footer-grid" style="margin-top:30px"></div>'))
+        '<div style="margin-top:20px"><a class="btn-next" href="/notes/module-1/variables-data-types/">Next: Variables &amp; Data Types &rarr;</a></div>'))
     return S

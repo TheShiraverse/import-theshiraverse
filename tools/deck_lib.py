@@ -94,5 +94,4 @@ def table(headers, rows, cls="map"):
 
 def closing(next_title, next_href, blurb, links=True):
     nxt = f'<a class="btn-next" href="{next_href}">Next: {next_title} &rarr;</a>' if next_href else f'<span class="chip"><b>Next:</b> {next_title} (coming soon)</span>'
-    return scene("Next", head("Next", next_title, blurb) + f'<div style="margin-top:18px">{nxt}</div>'
-                 '<div id="site-footer-grid" style="margin-top:34px"></div>')
+    return scene("Next", head("Next", next_title, blurb) + f'<div style="margin-top:18px">{nxt}</div>')

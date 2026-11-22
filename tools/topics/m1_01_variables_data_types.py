@@ -164,6 +164,5 @@ def build():
     # 24 next
     S.append(scene("Next: Numbers & Operators", head("Next topic", "Numbers & Operators",
         "Arithmetic, integer division, modulo, powers, rounding, and exact money with <code>Decimal</code>. You will use every one of them on RetailMart orders.") +
-        '<div class="mission"><b>Before the next topic:</b> finish the take-home and play with the playground: <a href="/playground/">python.theshiraverse.com/playground</a></div>'
-        '<div id="site-footer-grid" style="margin-top:30px"></div>'))
+        '<div class="mission"><b>Before the next topic:</b> finish the take-home and play with the playground: <a href="/playground/">python.theshiraverse.com/playground</a></div>'))
     return S
