@@ -133,7 +133,7 @@ Total: 75 numbered topics, 5 Get started sections, 3 mini-projects, 1 capstone. 
 **Common mistakes:** NameError; str + int TypeError; float drift 0.1+0.2; bool('False') is True
 **Practice:** 8 practice questions (built); take-home on a second product
 
-### Topic 3. Numbers & operators
+### Topic 3. Numbers & operators (BUILT)
 **Goal:** Do arithmetic correctly, including rounding and exact money.
 **Covers:**
 - + - * / // % **
